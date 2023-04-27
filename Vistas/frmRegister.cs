@@ -22,6 +22,8 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
             cn = new database();
+            cmbTipoDocumento.SelectedIndex = 0;
+            dtpNacimiento.Value = DateTime.Now.AddYears(-17);
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
