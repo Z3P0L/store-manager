@@ -60,6 +60,7 @@
             this.btnRegistro.TabIndex = 2;
             this.btnRegistro.Text = "Registrarse";
             this.btnRegistro.UseVisualStyleBackColor = true;
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
             // 
             // btnPagar
             // 
@@ -69,6 +70,7 @@
             this.btnPagar.TabIndex = 3;
             this.btnPagar.Text = "Pagar";
             this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // frmMain
             // 
