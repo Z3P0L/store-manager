@@ -16,5 +16,19 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
         }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            frmCaja caja = new frmCaja();
+            caja.Show();
+            this.Hide();
+        }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            frmRegister registro = new frmRegister();
+            registro.Show();
+            this.Hide();
+        }
     }
 }
