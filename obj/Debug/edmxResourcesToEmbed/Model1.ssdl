@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="precio_compra" Type="float" Nullable="false" />
+    <Property Name="precio_venta" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="documento" Type="int" Nullable="false" />
+    <Property Name="documento_tipo" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="edad" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendedores">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="documento" Type="int" Nullable="false" />
+    <Property Name="created" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="int" Nullable="false" />
+    <Property Name="producto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="precio" Type="float" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__vendedore__docum__5CD6CB2B">
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+    <End Role="vendedores" Type="Self.vendedores" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="vendedores">
+        <PropertyRef Name="documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ventas__producto__60A75C0F">
+    <End Role="productos" Type="Self.productos" Multiplicity="1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ventas__usuario__5FB337D6">
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="masterModelStoreContainer">
+    <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendedores" EntityType="Self.vendedores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__vendedore__docum__5CD6CB2B" Association="Self.FK__vendedore__docum__5CD6CB2B">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="vendedores" EntitySet="vendedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ventas__producto__60A75C0F" Association="Self.FK__ventas__producto__60A75C0F">
+      <End Role="productos" EntitySet="productos" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ventas__usuario__5FB337D6" Association="Self.FK__ventas__usuario__5FB337D6">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

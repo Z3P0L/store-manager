@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="precio_compra" Type="Double" Nullable="false" />
+    <Property Name="precio_venta" Type="Double" Nullable="false" />
+    <NavigationProperty Name="ventas" Relationship="Self.FK__ventas__producto__60A75C0F" FromRole="productos" ToRole="ventas" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="documento" Type="Int32" Nullable="false" />
+    <Property Name="documento_tipo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="edad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="vendedores" Relationship="Self.FK__vendedore__docum__5CD6CB2B" FromRole="usuarios" ToRole="vendedores" />
+    <NavigationProperty Name="ventas" Relationship="Self.FK__ventas__usuario__5FB337D6" FromRole="usuarios" ToRole="ventas" />
+  </EntityType>
+  <EntityType Name="vendedores">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="documento" Type="Int32" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="usuarios" Relationship="Self.FK__vendedore__docum__5CD6CB2B" FromRole="vendedores" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="usuario" Type="Int32" Nullable="false" />
+    <Property Name="producto" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="productos" Relationship="Self.FK__ventas__producto__60A75C0F" FromRole="ventas" ToRole="productos" />
+    <NavigationProperty Name="usuarios" Relationship="Self.FK__ventas__usuario__5FB337D6" FromRole="ventas" ToRole="usuarios" />
+  </EntityType>
+  <Association Name="FK__ventas__producto__60A75C0F">
+    <End Role="productos" Type="Self.productos" Multiplicity="1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vendedore__docum__5CD6CB2B">
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+    <End Role="vendedores" Type="Self.vendedores" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="vendedores">
+        <PropertyRef Name="documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ventas__usuario__5FB337D6">
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="masterEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="productos" EntityType="Self.productos" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+    <EntitySet Name="vendedores" EntityType="Self.vendedores" />
+    <EntitySet Name="ventas" EntityType="Self.ventas" />
+    <AssociationSet Name="FK__ventas__producto__60A75C0F" Association="Self.FK__ventas__producto__60A75C0F">
+      <End Role="productos" EntitySet="productos" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vendedore__docum__5CD6CB2B" Association="Self.FK__vendedore__docum__5CD6CB2B">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="vendedores" EntitySet="vendedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ventas__usuario__5FB337D6" Association="Self.FK__ventas__usuario__5FB337D6">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
