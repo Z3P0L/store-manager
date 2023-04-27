@@ -24,6 +24,7 @@ namespace Proyecto_POO.Vistas
             cn = new database();
             cmbTipoDocumento.SelectedIndex = 0;
             dtpNacimiento.Value = DateTime.Now.AddYears(-17);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
