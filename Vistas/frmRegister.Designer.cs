@@ -39,6 +39,8 @@
             this.lblNacimiento = new System.Windows.Forms.Label();
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.btnRegistrar = new System.Windows.Forms.Button();
+            this.lblContrasena = new System.Windows.Forms.Label();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTipoDocumento
@@ -124,24 +126,42 @@
             // 
             this.dtpNacimiento.Location = new System.Drawing.Point(15, 151);
             this.dtpNacimiento.Name = "dtpNacimiento";
-            this.dtpNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtpNacimiento.Size = new System.Drawing.Size(435, 20);
             this.dtpNacimiento.TabIndex = 9;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(221, 147);
+            this.btnRegistrar.Location = new System.Drawing.Point(350, 71);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 24);
+            this.btnRegistrar.Size = new System.Drawing.Size(100, 36);
             this.btnRegistrar.TabIndex = 10;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
+            // lblContrasena
+            // 
+            this.lblContrasena.AutoSize = true;
+            this.lblContrasena.Location = new System.Drawing.Point(347, 9);
+            this.lblContrasena.Name = "lblContrasena";
+            this.lblContrasena.Size = new System.Drawing.Size(61, 13);
+            this.lblContrasena.TabIndex = 11;
+            this.lblContrasena.Text = "Contraseña";
+            // 
+            // txtContrasena
+            // 
+            this.txtContrasena.Location = new System.Drawing.Point(350, 25);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(100, 20);
+            this.txtContrasena.TabIndex = 12;
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 198);
+            this.ClientSize = new System.Drawing.Size(462, 198);
+            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.lblNacimiento);
@@ -173,5 +193,7 @@
         private System.Windows.Forms.Label lblNacimiento;
         private System.Windows.Forms.DateTimePicker dtpNacimiento;
         private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Label lblContrasena;
+        private System.Windows.Forms.TextBox txtContrasena;
     }
 }
