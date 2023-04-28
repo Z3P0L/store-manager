@@ -29,6 +29,9 @@ namespace Proyecto_POO.Vistas
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            string password = txtContrasena.Text;
+            string scrambledPassword = Scrambler.ScramblePassword(password);
+
             if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(txtDocumento.Text) || cmbTipoDocumento.SelectedIndex == -1 || dtpNacimiento.Value == null)
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.");
@@ -48,7 +51,7 @@ namespace Proyecto_POO.Vistas
             cmd = new SqlCommand(sql, cn.OpenConnection());
             cmd.Parameters.AddWithValue("@documento", txtDocumento.Text);
             cmd.Parameters.AddWithValue("@tipo_documento", cmbTipoDocumento.Text);
-            cmd.Parameters.AddWithValue("@clave", txtDocumento.Text);
+            cmd.Parameters.AddWithValue("@clave", scrambledPassword);
             cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
             cmd.Parameters.AddWithValue("@apellido", txtApellido.Text);
             cmd.Parameters.AddWithValue("@nacimiento", fecha);
