@@ -33,7 +33,9 @@ namespace Proyecto_POO.Vistas
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand( "SELECT * FROM usuarios WHERE documento = '" + txtUsuario.Text + "' AND clave = '" + txtClave.Text + "'", cn.OpenConnection() );
+            string password = Scrambler.ScramblePassword(txtClave.Text);
+
+            cmd = new SqlCommand( "SELECT * FROM usuarios WHERE documento = '" + txtUsuario.Text + "' AND clave = '" + password + "'", cn.OpenConnection() );
             da = new SqlDataAdapter( cmd );
             dt = new DataTable();
             da.Fill( dt );
