@@ -53,7 +53,6 @@ namespace Proyecto_POO.Vistas
                     this.Close();
                 }
             } else {
-                string usuarioLogged = txtUsuario.Text;
                 frmMain main = new frmMain();
                 main.Show();
                 this.Hide();
