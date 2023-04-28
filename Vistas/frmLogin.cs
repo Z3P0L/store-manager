@@ -24,6 +24,7 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
             cn = new database();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
