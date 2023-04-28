@@ -66,6 +66,8 @@ namespace Proyecto_POO.Vistas
             }
             else
             {
+                frmMain main = new frmMain();
+                main.Show();
                 this.Close();
             }
         }
