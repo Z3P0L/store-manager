@@ -23,12 +23,5 @@ namespace Proyecto_POO.Vistas
             caja.Show();
             this.Hide();
         }
-
-        private void btnRegistro_Click(object sender, EventArgs e)
-        {
-            frmRegister registro = new frmRegister();
-            registro.Show();
-            this.Hide();
-        }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.btnRegistro = new System.Windows.Forms.Button();
             this.btnCaja = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,16 +51,6 @@
             this.lblHeader.TabIndex = 1;
             this.lblHeader.Text = "¿Qué desea hacer?";
             // 
-            // btnRegistro
-            // 
-            this.btnRegistro.Location = new System.Drawing.Point(16, 72);
-            this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(103, 45);
-            this.btnRegistro.TabIndex = 2;
-            this.btnRegistro.Text = "Registrarse";
-            this.btnRegistro.UseVisualStyleBackColor = true;
-            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
-            // 
             // btnCaja
             // 
             this.btnCaja.Location = new System.Drawing.Point(125, 72);
@@ -78,7 +67,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(256, 143);
             this.Controls.Add(this.btnCaja);
-            this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.lblBienvenido);
             this.Name = "frmMain";
@@ -92,7 +80,6 @@
 
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnCaja;
     }
 }
