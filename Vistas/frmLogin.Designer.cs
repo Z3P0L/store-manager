@@ -34,18 +34,19 @@
             this.lblClave = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(12, 37);
+            this.txtUsuario.Location = new System.Drawing.Point(48, 37);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(139, 20);
             this.txtUsuario.TabIndex = 1;
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(12, 96);
+            this.txtClave.Location = new System.Drawing.Point(48, 96);
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(139, 20);
@@ -54,7 +55,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(62, 9);
+            this.lblUsuario.Location = new System.Drawing.Point(98, 9);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 3;
@@ -63,7 +64,7 @@
             // lblClave
             // 
             this.lblClave.AutoSize = true;
-            this.lblClave.Location = new System.Drawing.Point(53, 70);
+            this.lblClave.Location = new System.Drawing.Point(89, 70);
             this.lblClave.Name = "lblClave";
             this.lblClave.Size = new System.Drawing.Size(61, 13);
             this.lblClave.TabIndex = 4;
@@ -71,7 +72,7 @@
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(12, 144);
+            this.btnEntrar.Location = new System.Drawing.Point(126, 147);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(61, 23);
             this.btnEntrar.TabIndex = 5;
@@ -81,7 +82,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(89, 144);
+            this.btnSalir.Location = new System.Drawing.Point(88, 185);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(62, 23);
             this.btnSalir.TabIndex = 6;
@@ -89,11 +90,21 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Location = new System.Drawing.Point(48, 147);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(61, 23);
+            this.btnRegistrar.TabIndex = 7;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(163, 183);
+            this.ClientSize = new System.Drawing.Size(231, 220);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.lblClave);
@@ -117,5 +128,6 @@
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnRegistrar;
     }
 }
