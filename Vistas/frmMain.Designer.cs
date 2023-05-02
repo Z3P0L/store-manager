@@ -31,7 +31,7 @@
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnRegistro = new System.Windows.Forms.Button();
-            this.btnPagar = new System.Windows.Forms.Button();
+            this.btnCaja = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblBienvenido
@@ -62,22 +62,22 @@
             this.btnRegistro.UseVisualStyleBackColor = true;
             this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
             // 
-            // btnPagar
+            // btnCaja
             // 
-            this.btnPagar.Location = new System.Drawing.Point(125, 72);
-            this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(103, 45);
-            this.btnPagar.TabIndex = 3;
-            this.btnPagar.Text = "Pagar";
-            this.btnPagar.UseVisualStyleBackColor = true;
-            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
+            this.btnCaja.Location = new System.Drawing.Point(125, 72);
+            this.btnCaja.Name = "btnCaja";
+            this.btnCaja.Size = new System.Drawing.Size(103, 45);
+            this.btnCaja.TabIndex = 3;
+            this.btnCaja.Text = "Ir a caja";
+            this.btnCaja.UseVisualStyleBackColor = true;
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(256, 143);
-            this.Controls.Add(this.btnPagar);
+            this.Controls.Add(this.btnCaja);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.lblBienvenido);
@@ -93,6 +93,6 @@
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnRegistro;
-        private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.Button btnCaja;
     }
 }
