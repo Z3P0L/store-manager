@@ -31,6 +31,7 @@
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnCaja = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblBienvenido
@@ -61,11 +62,21 @@
             this.btnCaja.UseVisualStyleBackColor = true;
             this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.Location = new System.Drawing.Point(16, 72);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(103, 45);
+            this.btnUsuarios.TabIndex = 4;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(256, 143);
+            this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnCaja);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.lblBienvenido);
@@ -81,5 +92,6 @@
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnCaja;
+        private System.Windows.Forms.Button btnUsuarios;
     }
 }
