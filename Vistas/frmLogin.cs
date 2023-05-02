@@ -64,5 +64,12 @@ namespace Proyecto_POO.Vistas
         {
             this.Close();
         }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            frmRegister register = new frmRegister();
+            register.Show();
+            this.Hide();
+        }
     }
 }
