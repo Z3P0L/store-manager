@@ -63,6 +63,7 @@
             this.btnUsuarios.TabIndex = 4;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // llblReporsitory
             // 
@@ -82,6 +83,7 @@
             this.btnProductos.TabIndex = 6;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // frmMain
             // 

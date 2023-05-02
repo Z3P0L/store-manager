@@ -23,5 +23,15 @@ namespace Proyecto_POO.Vistas
             caja.Show();
             this.Hide();
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
