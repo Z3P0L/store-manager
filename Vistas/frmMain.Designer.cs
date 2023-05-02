@@ -74,6 +74,7 @@
             this.llblReporsitory.TabIndex = 5;
             this.llblReporsitory.TabStop = true;
             this.llblReporsitory.Text = "https://github.com/Z3P0L/store-manager";
+            this.llblReporsitory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblReporsitory_LinkClicked);
             // 
             // btnProductos
             // 

@@ -33,5 +33,10 @@ namespace Proyecto_POO.Vistas
         {
 
         }
+
+        private void llblReporsitory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Z3P0L/store-manager");
+        }
     }
 }
