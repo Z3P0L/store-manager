@@ -33,7 +33,9 @@ namespace Proyecto_POO.Vistas
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-
+            frmInventario inventario = new frmInventario();
+            inventario.Show();
+            this.Hide();
         }
 
         private void llblReporsitory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
