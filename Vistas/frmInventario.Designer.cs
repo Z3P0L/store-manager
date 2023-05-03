@@ -1,4 +1,6 @@
-﻿namespace Proyecto_POO.Vistas
+﻿using System.Windows.Forms;
+
+namespace Proyecto_POO.Vistas
 {
     partial class frmInventario
     {
@@ -88,6 +90,27 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dataGridViewDesign()
+        {
+            dgvProductos.Columns.Add("Nombre", "Nombre");
+            dgvProductos.Columns.Add(new DataGridViewImageColumn() { Name = "Imagen", HeaderText = "Imagen", ImageLayout = DataGridViewImageCellLayout.Stretch });
+            dgvProductos.Columns.Add("Cantidad", "Cantidad");
+            dgvProductos.Columns.Add("Precio", "Precio");
+            dgvProductos.Columns.Add(new DataGridViewButtonColumn() { Name = "Editar", HeaderText = "Editar" });
+            dgvProductos.Columns.Add(new DataGridViewButtonColumn() { Name = "Eliminar", HeaderText = "Eliminar" });
+
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.ReadOnly = true;
+            dgvProductos.RowTemplate.Height = 100;
+
+            foreach (DataGridViewColumn col in dgvProductos.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            dgvProductos.Columns["Imagen"].Width = 200;
         }
 
         #endregion
