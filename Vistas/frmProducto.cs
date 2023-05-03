@@ -73,6 +73,13 @@ namespace Proyecto_POO.Vistas
             cmd.Parameters.AddWithValue("@precio_compra", precioCompra);
             cmd.Parameters.AddWithValue("@precio_venta", precioVenta);
             cmd.ExecuteNonQuery();
+
+            txtCantidad.Clear();
+            txtId.Clear();
+            txtNombre.Clear();
+            txtPrecioCompra.Clear();
+            txtPrecioVenta.Clear();
+            MessageBox.Show("Producto guardado exitosamente.");
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
