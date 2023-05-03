@@ -38,10 +38,16 @@ namespace Proyecto_POO.Vistas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            frmMain main = new frmMain();
+            main.Show();
+            this.Hide();
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
+            frmProducto producto = new frmProducto();
+            producto.Show();
+            this.Hide();
         }
     }
 }
