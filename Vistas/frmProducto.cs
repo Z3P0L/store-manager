@@ -46,7 +46,7 @@ namespace Proyecto_POO.Vistas
                 precioVenta = float.Parse(txtPrecioVenta.Text, CultureInfo.InvariantCulture);                
             } catch
             {
-                MessageBox.Show("No se puedo guardar el producto. Verifique que los campos tengan los valores adecuados.");
+                MessageBox.Show("No se pudo guardar el producto. Verifique que los campos tengan los valores adecuados.");
                 return;
             }
 
@@ -55,6 +55,7 @@ namespace Proyecto_POO.Vistas
                 MessageBox.Show("Agregue una imagen antes de guardar");
                 return;
             }
+
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
