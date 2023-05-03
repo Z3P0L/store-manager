@@ -27,5 +27,15 @@ namespace Proyecto_POO.Vistas
                 pbProductoImagen.Image = new Bitmap(ofdCargarImagen.FileName);
             }
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
