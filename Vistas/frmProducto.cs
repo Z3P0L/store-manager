@@ -21,6 +21,7 @@ namespace Proyecto_POO.Vistas
         string imgRoute = "";
         public frmProducto()
         {
+            cn = new database();
             InitializeComponent();
         }
 
