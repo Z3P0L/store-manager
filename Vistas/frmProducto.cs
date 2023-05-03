@@ -29,7 +29,14 @@ namespace Proyecto_POO.Vistas
             if (ofdCargarImagen.ShowDialog() == DialogResult.OK)
             {
                 imgRoute = ofdCargarImagen.FileName;
-                pbProductoImagen.Image = new Bitmap(ofdCargarImagen.FileName);
+                try
+                {
+                    pbProductoImagen.Image = new Bitmap(ofdCargarImagen.FileName);
+                } catch
+                {
+                    imgRoute = "";
+                    MessageBox.Show("Hubo un error cargando la imagen, por favor intente con otra.");
+                }
             }
         }
 
