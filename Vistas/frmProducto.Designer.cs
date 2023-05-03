@@ -192,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 391);
+            this.ClientSize = new System.Drawing.Size(372, 366);
             this.Controls.Add(this.pbProductoImagen);
             this.Controls.Add(this.gbProductoTexto);
             this.Controls.Add(this.txtId);
