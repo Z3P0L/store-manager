@@ -44,6 +44,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.gbProductoTexto = new System.Windows.Forms.GroupBox();
             this.pbProductoImagen = new System.Windows.Forms.PictureBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.gbProductoTexto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductoImagen)).BeginInit();
             this.SuspendLayout();
@@ -188,11 +189,21 @@
             this.pbProductoImagen.TabIndex = 15;
             this.pbProductoImagen.TabStop = false;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(230, 12);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(122, 46);
+            this.btnVolver.TabIndex = 16;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 366);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.pbProductoImagen);
             this.Controls.Add(this.gbProductoTexto);
             this.Controls.Add(this.txtId);
@@ -228,5 +239,6 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.GroupBox gbProductoTexto;
         private System.Windows.Forms.PictureBox pbProductoImagen;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
