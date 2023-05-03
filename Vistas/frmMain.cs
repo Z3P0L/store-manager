@@ -26,7 +26,9 @@ namespace Proyecto_POO.Vistas
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-
+            frmEmpleados empleados = new frmEmpleados();
+            empleados.Show();
+            this.Hide();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
