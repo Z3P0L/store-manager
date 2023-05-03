@@ -43,6 +43,7 @@
             this.btnNuevoProducto.TabIndex = 0;
             this.btnNuevoProducto.Text = "Nuevo producto";
             this.btnNuevoProducto.UseVisualStyleBackColor = true;
+            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
             // 
             // btnVolver
             // 
@@ -52,6 +53,7 @@
             this.btnVolver.TabIndex = 1;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // dgvProductos
             // 

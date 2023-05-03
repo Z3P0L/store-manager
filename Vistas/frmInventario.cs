@@ -35,5 +35,13 @@ namespace Proyecto_POO.Vistas
 
             dgvProductos.Columns["Imagen"].Width = 200;
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnNuevoProducto_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
