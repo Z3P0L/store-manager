@@ -56,6 +56,15 @@ namespace Proyecto_POO.Vistas
                 return;
             }
 
+            string sql = "INSERT INTO productos(Id, nombre, imagen, cantidad, precio_compra, precio_venta) VALUES(@Id, @nombre, @imagen, @cantidad, @precio_compra, @precio_venta)";
+            cmd = new SqlCommand(sql, cn.OpenConnection());
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
+            cmd.Parameters.AddWithValue("@imagen", imgRoute);
+            cmd.Parameters.AddWithValue("@cantidad", cantidad);
+            cmd.Parameters.AddWithValue("@precio_compra", precioCompra);
+            cmd.Parameters.AddWithValue("@precio_venta", precioVenta);
+            cmd.ExecuteNonQuery();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
