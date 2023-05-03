@@ -35,7 +35,9 @@ namespace Proyecto_POO.Vistas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            frmInventario inventario = new frmInventario();
+            inventario.Show();
+            this.Hide();
         }
     }
 }
