@@ -48,7 +48,7 @@ namespace Proyecto_POO.Vistas
 
             foreach (DataRow dr in dt.Rows)
             {
-                dgvProductos.Rows.Add(dr["nombre"], Image.FromFile(dr["imagen"].ToString()), dr["cantidad"], dr["precio_venta"]);
+                dgvProductos.Rows.Add(dr["Id"], dr["nombre"], Image.FromFile(dr["imagen"].ToString()), dr["cantidad"], dr["precio_venta"]);
             }
         }
     }

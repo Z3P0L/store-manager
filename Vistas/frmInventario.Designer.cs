@@ -94,6 +94,7 @@ namespace Proyecto_POO.Vistas
 
         private void dataGridViewDesign()
         {
+            dgvProductos.Columns.Add("Id", "Id");
             dgvProductos.Columns.Add("Nombre", "Nombre");
             dgvProductos.Columns.Add(new DataGridViewImageColumn() { Name = "Imagen", HeaderText = "Imagen", ImageLayout = DataGridViewImageCellLayout.Stretch });
             dgvProductos.Columns.Add("Cantidad", "Cantidad");
@@ -103,14 +104,14 @@ namespace Proyecto_POO.Vistas
 
             dgvProductos.AllowUserToAddRows = false;
             dgvProductos.ReadOnly = true;
-            dgvProductos.RowTemplate.Height = 100;
+            dgvProductos.RowTemplate.Height = 70;
 
             foreach (DataGridViewColumn col in dgvProductos.Columns)
             {
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
-            dgvProductos.Columns["Imagen"].Width = 200;
+            dgvProductos.Columns["Imagen"].Width = 150;
         }
 
         #endregion
