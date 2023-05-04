@@ -112,6 +112,7 @@ namespace Proyecto_POO.Vistas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            GlobalVars.GlobalId = -1;
             frmInventario inventario = new frmInventario();
             inventario.Show();
             this.Hide();
