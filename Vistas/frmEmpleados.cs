@@ -74,4 +74,5 @@ namespace Proyecto_POO.Vistas
                 }
             }
         }
+    }
 }
