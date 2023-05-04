@@ -27,6 +27,7 @@ namespace Proyecto_POO.Vistas
             {
                 DataRow usuario = getUsuario();
                 txtDocumento.Text = usuario["documento"].ToString();
+                cbDocumentoTipo.Text = usuario["documento_tipo"].ToString();
                 txtNombre.Text = usuario["nombre"].ToString();
                 txtApellido.Text = usuario["apellido"].ToString();
             }
