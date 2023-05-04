@@ -34,6 +34,23 @@ namespace Proyecto_POO.Vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            string sql;
+            if (txtClave.Text.Length > 0)
+            {
+                string scrambledPassword;
+                scrambledPassword = Scrambler.ScramblePassword(txtClave.Text);
+                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, clave=@clave, nombre=@nombre, apellido=@apellido";
+                cmd.Parameters.AddWithValue("clave", scrambledPassword);
+            } else
+            {
+                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, nombre=@nombre, apellido=@apellido";
+            }
+
+            cmd = new SqlCommand(sql, cn.OpenConnection());
+            cmd.Parameters.AddWithValue("documento", txtDocumento.Text);
+            cmd.Parameters.AddWithValue("documento_tipo", cbDocumentoTipo.Text);
+            cmd.Parameters.AddWithValue("nombre", txtNombre.Text);
+            cmd.Parameters.AddWithValue("apellido", txtApellido.Text);
 
         }
 
