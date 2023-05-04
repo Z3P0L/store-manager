@@ -41,5 +41,27 @@ namespace Proyecto_POO.Clases
             return dt;
         }
 
+        public DataRow GetById(string tableName, int id)
+        {
+            DataTable dt = new DataTable();
+            string sql = "SELECT * FROM " + tableName + " WHERE id = @id";
+            using (SqlCommand cmd = new SqlCommand(sql, OpenConnection()))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
+            }
+            CloseConnection();
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
