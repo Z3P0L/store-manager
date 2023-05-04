@@ -88,5 +88,11 @@ namespace Proyecto_POO.Vistas
             inventario.Show();
             this.Hide();
         }
+
+        private bool getGlobalId()
+        {
+            if (GlobalVars.GlobalId.ToString() == null) return false;
+            return true;
+        }
     }
 }
