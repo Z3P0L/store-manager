@@ -26,6 +26,13 @@ namespace Proyecto_POO.Clases
             return connection;
         }
 
+        public void Query(string sql)
+        {
+            SqlCommand cmd = new SqlCommand(sql, OpenConnection());
+            cmd.ExecuteNonQuery();
+            CloseConnection();
+        }
+
         public DataTable GetAll(string tableName)
         {
             DataTable dt = new DataTable();
