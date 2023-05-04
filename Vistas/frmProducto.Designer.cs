@@ -214,7 +214,7 @@
             this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.btnGuardar);
             this.Name = "frmProducto";
-            this.Text = "frmProducto";
+            this.Text = "Producto";
             this.gbProductoTexto.ResumeLayout(false);
             this.gbProductoTexto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductoImagen)).EndInit();
