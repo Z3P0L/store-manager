@@ -30,14 +30,14 @@
         {
             this.btnGuardar = new System.Windows.Forms.Button();
             this.gbProductoTexto = new System.Windows.Forms.GroupBox();
+            this.cbDocumentoTipo = new System.Windows.Forms.ComboBox();
+            this.lblDocumentoTipo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblDocumento = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
-            this.lblDocumentoTipo = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.lblClave = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@
             // 
             // gbProductoTexto
             // 
-            this.gbProductoTexto.Controls.Add(this.comboBox1);
+            this.gbProductoTexto.Controls.Add(this.cbDocumentoTipo);
             this.gbProductoTexto.Controls.Add(this.lblDocumentoTipo);
             this.gbProductoTexto.Controls.Add(this.lblNombre);
             this.gbProductoTexto.Controls.Add(this.txtNombre);
@@ -70,6 +70,28 @@
             this.gbProductoTexto.TabIndex = 15;
             this.gbProductoTexto.TabStop = false;
             this.gbProductoTexto.Text = "Información básica";
+            // 
+            // cbDocumentoTipo
+            // 
+            this.cbDocumentoTipo.FormattingEnabled = true;
+            this.cbDocumentoTipo.Items.AddRange(new object[] {
+            "CC",
+            "CE",
+            "TI"});
+            this.cbDocumentoTipo.Location = new System.Drawing.Point(240, 115);
+            this.cbDocumentoTipo.Name = "cbDocumentoTipo";
+            this.cbDocumentoTipo.Size = new System.Drawing.Size(100, 21);
+            this.cbDocumentoTipo.TabIndex = 11;
+            this.cbDocumentoTipo.Text = "Seleccione";
+            // 
+            // lblDocumentoTipo
+            // 
+            this.lblDocumentoTipo.AutoSize = true;
+            this.lblDocumentoTipo.Location = new System.Drawing.Point(237, 92);
+            this.lblDocumentoTipo.Name = "lblDocumentoTipo";
+            this.lblDocumentoTipo.Size = new System.Drawing.Size(99, 13);
+            this.lblDocumentoTipo.TabIndex = 10;
+            this.lblDocumentoTipo.Text = "Tipo de documento";
             // 
             // lblNombre
             // 
@@ -118,28 +140,6 @@
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
             this.txtDocumento.TabIndex = 9;
-            // 
-            // lblDocumentoTipo
-            // 
-            this.lblDocumentoTipo.AutoSize = true;
-            this.lblDocumentoTipo.Location = new System.Drawing.Point(237, 92);
-            this.lblDocumentoTipo.Name = "lblDocumentoTipo";
-            this.lblDocumentoTipo.Size = new System.Drawing.Size(99, 13);
-            this.lblDocumentoTipo.TabIndex = 10;
-            this.lblDocumentoTipo.Text = "Tipo de documento";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "CC",
-            "CE",
-            "TI"});
-            this.comboBox1.Location = new System.Drawing.Point(240, 115);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Text = "Seleccione";
             // 
             // btnVolver
             // 
@@ -197,7 +197,7 @@
         private System.Windows.Forms.Label lblDocumento;
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Label lblDocumentoTipo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbDocumentoTipo;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.TextBox txtClave;
