@@ -19,6 +19,8 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
             dataGridViewDesign();
+
+            LoadUsuarios();
         }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
