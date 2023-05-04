@@ -59,7 +59,7 @@ namespace Proyecto_POO.Vistas
                 GlobalVars.GlobalId = productId;
                 frmProducto producto = new frmProducto();
                 producto.Show();
-                this.Show();
+                this.Hide();
             }
         }
     }
