@@ -119,7 +119,7 @@ namespace Proyecto_POO.Vistas
 
         private bool getGlobalId()
         {
-            if (GlobalVars.GlobalId.ToString() == null) return false;
+            if (GlobalVars.GlobalId == -1) return false;
             return true;
         }
     }
