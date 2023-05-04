@@ -31,5 +31,15 @@ namespace Proyecto_POO.Vistas
             main.Show();
             this.Hide();
         }
+
+        private void LoadUsuarios()
+        {
+            dt = cn.GetAll("usuarios");
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                dgvEmpleados.Rows.Add(dr["documento"], dr["documento_tipo"], dr["nombre"], dr["apellido"], "Editar", "Eliminar");
+            }
+        }
     }
 }
