@@ -48,18 +48,33 @@ namespace Proyecto_POO.Vistas
 
             foreach (DataRow dr in dt.Rows)
             {
-                dgvProductos.Rows.Add(dr["Id"], dr["nombre"], Image.FromFile(dr["imagen"].ToString()), dr["cantidad"], dr["precio_venta"]);
+                dgvProductos.Rows.Add(dr["Id"], dr["nombre"], Image.FromFile(dr["imagen"].ToString()), dr["cantidad"], dr["precio_venta"], "Editar", "Eliminar");
             }
         }
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int productId = (int)dgvProductos.Rows[e.RowIndex].Cells["Id"].Value;
+
             if (e.ColumnIndex == dgvProductos.Columns["Editar"].Index && e.RowIndex >= 0)
             {
-                int productId = (int)dgvProductos.Rows[e.RowIndex].Cells["Id"].Value;
                 GlobalVars.GlobalId = productId;
                 frmProducto producto = new frmProducto();
                 producto.Show();
                 this.Hide();
+            }
+
+            if (e.ColumnIndex == dgvProductos.Columns["Eliminar"].Index && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("¿Desea eliminar el producto " + dgvProductos.Rows[e.RowIndex].Cells["nombre"].Value + "?", "Confirmar eliminación", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    string sql = "DELETE FROM productos WHERE Id=" + productId;
+                    cn.Query(sql);
+                    MessageBox.Show("Producto eliminado exitosamente.");
+
+                    dgvProductos.Rows.Clear();
+                    LoadProducts();
+                }
             }
         }
     }
