@@ -1,4 +1,6 @@
-﻿namespace Proyecto_POO.Vistas
+﻿using System.Windows.Forms;
+
+namespace Proyecto_POO.Vistas
 {
     partial class frmEmpleados
     {
@@ -88,6 +90,25 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dataGridViewDesign()
+        {
+            dgvEmpleados.Columns.Add("Documento", "Documento");
+            dgvEmpleados.Columns.Add("Tipo", "Tipo");
+            dgvEmpleados.Columns.Add("Nombre", "Nombre");
+            dgvEmpleados.Columns.Add("Apellido", "Apellido");
+            dgvEmpleados.Columns.Add(new DataGridViewButtonColumn() { Name = "Editar", HeaderText = "Editar" });
+            dgvEmpleados.Columns.Add(new DataGridViewButtonColumn() { Name = "Eliminar", HeaderText = "Eliminar" });
+
+            dgvEmpleados.AllowUserToAddRows = false;
+            dgvEmpleados.ReadOnly = true;
+            dgvEmpleados.RowTemplate.Height = 70;
+
+            foreach (DataGridViewColumn col in dgvEmpleados.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
 
         #endregion

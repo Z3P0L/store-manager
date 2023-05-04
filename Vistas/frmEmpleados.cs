@@ -15,6 +15,7 @@ namespace Proyecto_POO.Vistas
         public frmEmpleados()
         {
             InitializeComponent();
+            dataGridViewDesign();
         }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
