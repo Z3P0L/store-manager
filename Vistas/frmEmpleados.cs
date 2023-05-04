@@ -55,8 +55,8 @@ namespace Proyecto_POO.Vistas
             if (e.ColumnIndex == dgvEmpleados.Columns["Editar"].Index && e.RowIndex >= 0)
             {
                 GlobalVars.GlobalDocumento = userId;
-                frmProducto producto = new frmProducto();
-                producto.Show();
+                frmEmpleado empleado = new frmEmpleado();
+                empleado.Show();
                 this.Hide();
             }
 
