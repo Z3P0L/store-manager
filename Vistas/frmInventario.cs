@@ -51,5 +51,9 @@ namespace Proyecto_POO.Vistas
                 dgvProductos.Rows.Add(dr["Id"], dr["nombre"], Image.FromFile(dr["imagen"].ToString()), dr["cantidad"], dr["precio_venta"]);
             }
         }
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }
