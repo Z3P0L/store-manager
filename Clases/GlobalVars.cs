@@ -9,11 +9,18 @@ namespace Proyecto_POO.Clases
     internal class GlobalVars
     {
         private static int _GlobalId;
+        private static int _GlobalDocumento;
 
         public static int GlobalId
         {
             get { return _GlobalId; }
             set { _GlobalId = value; }
+        }
+
+        public static int GlobalDocumento
+        {
+            get { return _GlobalDocumento; }
+            set { _GlobalDocumento = value; }
         }
     }
 }
