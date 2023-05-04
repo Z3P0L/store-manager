@@ -23,6 +23,9 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
             dataGridViewDesign();
+
+            cn = new database();
+            LoadProducts();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -37,6 +40,16 @@ namespace Proyecto_POO.Vistas
             frmProducto producto = new frmProducto();
             producto.Show();
             this.Hide();
+        }
+
+        private void LoadProducts()
+        {
+            dt = cn.GetAll("productos");
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                dgvProductos.Rows.Add(dr["nombre"], Image.FromFile(dr["imagen"].ToString()), dr["cantidad"], dr["precio_venta"]);
+            }
         }
     }
 }
