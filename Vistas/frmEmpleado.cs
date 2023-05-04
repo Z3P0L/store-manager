@@ -52,6 +52,7 @@ namespace Proyecto_POO.Vistas
             cmd.Parameters.AddWithValue("nombre", txtNombre.Text);
             cmd.Parameters.AddWithValue("apellido", txtApellido.Text);
 
+            MessageBox.Show("Información guardada exitosamente.");
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
