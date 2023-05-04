@@ -74,5 +74,12 @@ namespace Proyecto_POO.Vistas
                 this.Close();
             }
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmMain main = new frmMain();
+            main.Show();
+            this.Hide();
+        }
     }
 }
