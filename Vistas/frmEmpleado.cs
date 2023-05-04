@@ -40,11 +40,11 @@ namespace Proyecto_POO.Vistas
             {
                 string scrambledPassword;
                 scrambledPassword = Scrambler.ScramblePassword(txtClave.Text);
-                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, clave=@clave, nombre=@nombre, apellido=@apellido";
+                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, clave=@clave, nombre=@nombre, apellido=@apellido WHERE documento=" + GlobalVars.GlobalDocumento;
                 cmd.Parameters.AddWithValue("clave", scrambledPassword);
             } else
             {
-                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, nombre=@nombre, apellido=@apellido";
+                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, nombre=@nombre, apellido=@apellido WHERE documento=" + GlobalVars.GlobalDocumento;
             }
 
             cmd = new SqlCommand(sql, cn.OpenConnection());
