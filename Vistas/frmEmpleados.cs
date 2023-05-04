@@ -16,5 +16,19 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
         }
+
+        private void btnNuevoEmpleado_Click(object sender, EventArgs e)
+        {
+            frmRegister registro = new frmRegister();
+            registro.Show();
+            this.Hide();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmMain main = new frmMain();
+            main.Show();
+            this.Hide();
+        }
     }
 }

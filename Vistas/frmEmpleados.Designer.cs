@@ -53,6 +53,7 @@
             this.btnVolver.TabIndex = 5;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnNuevoEmpleado
             // 
@@ -62,6 +63,7 @@
             this.btnNuevoEmpleado.TabIndex = 4;
             this.btnNuevoEmpleado.Text = "Nuevo empleado";
             this.btnNuevoEmpleado.UseVisualStyleBackColor = true;
+            this.btnNuevoEmpleado.Click += new System.EventHandler(this.btnNuevoEmpleado_Click);
             // 
             // dgvEmpleados
             // 
