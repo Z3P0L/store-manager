@@ -34,6 +34,8 @@ namespace Proyecto_POO.Vistas
                     txtCantidad.Text = producto["cantidad"].ToString();
                     txtPrecioCompra.Text = producto["precio_compra"].ToString();
                     txtPrecioVenta.Text = producto["precio_venta"].ToString();
+                    imgRoute = producto["imagen"].ToString();
+                    pbProductoImagen.Image = new Bitmap(imgRoute);
                 }
             }
         }
@@ -102,6 +104,8 @@ namespace Proyecto_POO.Vistas
             txtNombre.Clear();
             txtPrecioCompra.Clear();
             txtPrecioVenta.Clear();
+            imgRoute = "";
+            pbProductoImagen.Image = null;
             MessageBox.Show("Producto guardado exitosamente.");
         }
 
