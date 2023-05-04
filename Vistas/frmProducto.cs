@@ -99,6 +99,7 @@ namespace Proyecto_POO.Vistas
             cmd.Parameters.AddWithValue("@precio_venta", precioVenta);
             cmd.ExecuteNonQuery();
 
+            GlobalVars.GlobalId = -1;
             txtCantidad.Clear();
             txtId.Clear();
             txtNombre.Clear();
