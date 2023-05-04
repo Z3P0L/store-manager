@@ -20,6 +20,7 @@ namespace Proyecto_POO.Vistas
             InitializeComponent();
             dataGridViewDesign();
 
+            cn = new database();
             LoadUsuarios();
         }
 
