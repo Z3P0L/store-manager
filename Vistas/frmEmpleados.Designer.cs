@@ -74,6 +74,7 @@ namespace Proyecto_POO.Vistas
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(776, 356);
             this.dgvEmpleados.TabIndex = 7;
+            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
             // 
             // frmEmpleados
             // 

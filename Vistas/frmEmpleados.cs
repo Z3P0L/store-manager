@@ -47,5 +47,31 @@ namespace Proyecto_POO.Vistas
                 dgvEmpleados.Rows.Add(dr["documento"], dr["documento_tipo"], dr["nombre"], dr["apellido"], "Editar", "Eliminar");
             }
         }
-    }
+
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int userId = (int)dgvEmpleados.Rows[e.RowIndex].Cells["Id"].Value;
+
+            if (e.ColumnIndex == dgvEmpleados.Columns["Editar"].Index && e.RowIndex >= 0)
+            {
+                GlobalVars.GlobalDocumento = userId;
+                frmProducto producto = new frmProducto();
+                producto.Show();
+                this.Hide();
+            }
+
+            if (e.ColumnIndex == dgvEmpleados.Columns["Eliminar"].Index && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("¿Desea eliminar el empleado " + dgvEmpleados.Rows[e.RowIndex].Cells["nombre"].Value + "?", "Confirmar eliminación", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    string sql = "DELETE FROM usuarios WHERE documento=" + userId;
+                    cn.Query(sql);
+                    MessageBox.Show("Empleado eliminado exitosamente.");
+
+                    dgvEmpleados.Rows.Clear();
+                    LoadUsuarios();
+                }
+            }
+        }
 }
