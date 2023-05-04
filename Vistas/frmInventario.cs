@@ -16,8 +16,6 @@ namespace Proyecto_POO.Vistas
     public partial class frmInventario : Form
     {
         database cn;
-        SqlCommand cmd;
-        SqlDataAdapter da;
         DataTable dt;
         public frmInventario()
         {
