@@ -10,6 +10,7 @@ namespace Proyecto_POO.Clases
     {
         private static int _GlobalId;
         private static int _GlobalDocumento;
+        private static string _GlobalUserLogged;
 
         public static int GlobalId
         {
@@ -21,6 +22,12 @@ namespace Proyecto_POO.Clases
         {
             get { return _GlobalDocumento; }
             set { _GlobalDocumento = value; }
+        }
+
+        public static string GlobalUserLogged
+        {
+            get { return _GlobalUserLogged; }
+            set { _GlobalUserLogged = value; }
         }
     }
 }
