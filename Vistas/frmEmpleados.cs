@@ -50,7 +50,7 @@ namespace Proyecto_POO.Vistas
 
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int userId = (int)dgvEmpleados.Rows[e.RowIndex].Cells["Id"].Value;
+            int userId = (int)dgvEmpleados.Rows[e.RowIndex].Cells["Documento"].Value;
 
             if (e.ColumnIndex == dgvEmpleados.Columns["Editar"].Index && e.RowIndex >= 0)
             {
