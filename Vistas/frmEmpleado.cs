@@ -19,6 +19,7 @@ namespace Proyecto_POO.Vistas
         public frmEmpleado()
         {
             InitializeComponent();
+            cn = new database();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
