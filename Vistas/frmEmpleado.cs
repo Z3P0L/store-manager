@@ -52,6 +52,7 @@ namespace Proyecto_POO.Vistas
             cmd.Parameters.AddWithValue("documento_tipo", cbDocumentoTipo.Text);
             cmd.Parameters.AddWithValue("nombre", txtNombre.Text);
             cmd.Parameters.AddWithValue("apellido", txtApellido.Text);
+            cmd.ExecuteNonQuery();
 
             MessageBox.Show("Información guardada exitosamente.");
         }
