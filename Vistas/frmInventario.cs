@@ -53,7 +53,14 @@ namespace Proyecto_POO.Vistas
         }
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (e.ColumnIndex == dgvProductos.Columns["Editar"].Index && e.RowIndex >= 0)
+            {
+                int productId = (int)dgvProductos.Rows[e.RowIndex].Cells["Id"].Value;
+                GlobalVars.GlobalId = productId;
+                frmProducto producto = new frmProducto();
+                producto.Show();
+                this.Show();
+            }
         }
     }
 }
