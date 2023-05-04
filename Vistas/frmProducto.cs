@@ -23,6 +23,19 @@ namespace Proyecto_POO.Vistas
         {
             cn = new database();
             InitializeComponent();
+
+            if (getGlobalId())
+            {
+                DataRow producto = cn.GetById("productos", GlobalVars.GlobalId);
+                if (producto != null)
+                {
+                    txtId.Text = producto["Id"].ToString();
+                    txtNombre.Text = producto["nombre"].ToString();
+                    txtCantidad.Text = producto["cantidad"].ToString();
+                    txtPrecioCompra.Text = producto["precio_compra"].ToString();
+                    txtPrecioVenta.Text = producto["precio_venta"].ToString();
+                }
+            }
         }
 
         private void btnCargarImagen_Click(object sender, EventArgs e)
@@ -45,14 +58,16 @@ namespace Proyecto_POO.Vistas
         {
             int id, cantidad;
             float precioCompra, precioVenta;
+            string sql;
 
             try
             {
                 id = Int32.Parse(txtId.Text);
                 cantidad = Int32.Parse(txtCantidad.Text);
                 precioCompra = float.Parse(txtPrecioCompra.Text, CultureInfo.InvariantCulture);
-                precioVenta = float.Parse(txtPrecioVenta.Text, CultureInfo.InvariantCulture);                
-            } catch
+                precioVenta = float.Parse(txtPrecioVenta.Text, CultureInfo.InvariantCulture);
+            }
+            catch
             {
                 MessageBox.Show("No se pudo guardar el producto. Verifique que los campos tengan los valores adecuados.");
                 return;
@@ -64,7 +79,15 @@ namespace Proyecto_POO.Vistas
                 return;
             }
 
-            string sql = "INSERT INTO productos(Id, nombre, imagen, cantidad, precio_compra, precio_venta) VALUES(@Id, @nombre, @imagen, @cantidad, @precio_compra, @precio_venta)";
+            DataRow producto = cn.GetById("productos", Int32.Parse(txtId.Text));
+            if (producto == null)
+            {
+                sql = "INSERT INTO productos(Id, nombre, imagen, cantidad, precio_compra, precio_venta) VALUES(@Id, @nombre, @imagen, @cantidad, @precio_compra, @precio_venta)";
+            } else
+            {
+                sql = "UPDATE productos SET Id=@Id, nombre=@nombre, imagen=@imagen, cantidad=@cantidad, precio_compra=@precio_compra, precio_venta=@precio_venta";
+            }
+
             cmd = new SqlCommand(sql, cn.OpenConnection());
             cmd.Parameters.AddWithValue("@Id", id);
             cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
