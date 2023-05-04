@@ -33,5 +33,11 @@ namespace Proyecto_POO.Vistas
             main.Show();
             this.Hide();
         }
+
+        public bool getGlobalDocumento()
+        {
+            if (GlobalVars.GlobalDocumento.ToString() == null) return false;
+            return true;
+        }
     }
 }
