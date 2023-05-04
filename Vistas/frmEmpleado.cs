@@ -22,6 +22,14 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
             cn = new database();
+
+            if (getGlobalDocumento())
+            {
+                DataRow usuario = getUsuario();
+                txtDocumento.Text = usuario["documento"].ToString();
+                txtNombre.Text = usuario["nombre"].ToString();
+                txtApellido.Text = usuario["apellido"].ToString();
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
