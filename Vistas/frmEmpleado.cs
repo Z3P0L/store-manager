@@ -16,6 +16,8 @@ namespace Proyecto_POO.Vistas
     {
         database cn;
         SqlCommand cmd;
+        SqlDataAdapter da;
+        DataTable dt;
         public frmEmpleado()
         {
             InitializeComponent();
@@ -38,6 +40,18 @@ namespace Proyecto_POO.Vistas
         {
             if (GlobalVars.GlobalDocumento.ToString() == null) return false;
             return true;
+        }
+
+        public DataRow getUsuario()
+        {
+            string sql = "SELECT * FROM usuarios WHERE documento=@documento";
+            cmd = new SqlCommand(sql, cn.OpenConnection());
+            cmd.Parameters.AddWithValue("@documento", GlobalVars.GlobalDocumento);
+            da = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            da.Fill(dt);
+
+            return dt.Rows[0];
         }
     }
 }
