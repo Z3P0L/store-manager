@@ -32,6 +32,17 @@ namespace Proyecto_POO.Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            DataRow producto = cn.GetById("productos", Int32.Parse(txtProductoId.Text));
+            if (producto == null) 
+            {
+                MessageBox.Show("El producto no existe.");
+                return;
+            }
+            dgvProductos.Rows.Add(producto["Id"].ToString(), producto["nombre"].ToString(), Image.FromFile(producto["imagen"].ToString()), producto["cantidad"].ToString(), producto["precio_venta"].ToString(), "Remover");
+        }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
