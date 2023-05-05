@@ -42,5 +42,12 @@ namespace Proyecto_POO.Vistas
         {
             System.Diagnostics.Process.Start("https://github.com/Z3P0L/store-manager");
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            frmReportes reportes = new frmReportes();
+            reportes.Show();
+            this.Hide();
+        }
     }
 }

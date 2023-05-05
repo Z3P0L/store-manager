@@ -33,6 +33,7 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.llblReporsitory = new System.Windows.Forms.LinkLabel();
             this.btnProductos = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -86,11 +87,22 @@
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
+            // btnReportes
+            // 
+            this.btnReportes.Location = new System.Drawing.Point(16, 157);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(227, 45);
+            this.btnReportes.TabIndex = 7;
+            this.btnReportes.Text = "Ver reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 172);
+            this.ClientSize = new System.Drawing.Size(255, 218);
+            this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.llblReporsitory);
             this.Controls.Add(this.btnUsuarios);
@@ -109,5 +121,6 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.LinkLabel llblReporsitory;
         private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnReportes;
     }
 }
