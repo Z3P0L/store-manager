@@ -52,7 +52,9 @@ namespace Proyecto_POO.Vistas
                 MessageBox.Show("Aviso: La cantidad es superior al stock (" + cantidadDb + ").");
                 return;
             }
+
             dgvProductos.Rows.Add(producto["Id"].ToString(), producto["nombre"].ToString(), Image.FromFile(producto["imagen"].ToString()), cantidadFrm, producto["precio_venta"].ToString(), "Remover");
+            calcTotal();
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -61,6 +63,20 @@ namespace Proyecto_POO.Vistas
             {
                 dgvProductos.Rows.RemoveAt(e.RowIndex);
             }
+            calcTotal();
+        }
+
+        private void calcTotal()
+        {
+            double total = 0;
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                double precio = Convert.ToDouble(row.Cells["Precio"].Value);
+                double precioTotal = cantidad * precio;
+                total += precioTotal;
+            }
+            lblTotal.Text = total.ToString("C2");
         }
     }
 }
