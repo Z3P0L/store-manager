@@ -54,6 +54,7 @@ namespace Proyecto_POO.Vistas
                     this.Close();
                 }
             } else {
+                GlobalVars.GlobalUserLogged = txtUsuario.Text;
                 frmMain main = new frmMain();
                 main.Show();
                 this.Hide();
