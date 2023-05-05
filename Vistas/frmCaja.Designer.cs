@@ -100,6 +100,7 @@ namespace Proyecto_POO.Vistas
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.Size = new System.Drawing.Size(772, 295);
             this.dgvProductos.TabIndex = 23;
+            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
             // lblTotalTitle
             // 
