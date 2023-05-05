@@ -26,11 +26,23 @@ namespace Proyecto_POO.Clases
             return connection;
         }
 
-        public void Query(string sql)
+        public DataTable Query(string sql)
         {
             SqlCommand cmd = new SqlCommand(sql, OpenConnection());
+
+            if (sql.ToLower().StartsWith("select"))
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                CloseConnection();
+                return dt;
+            }
+
             cmd.ExecuteNonQuery();
             CloseConnection();
+
+            return null;
         }
 
         public DataTable GetAll(string tableName)
@@ -51,7 +63,7 @@ namespace Proyecto_POO.Clases
         public DataRow GetById(string tableName, int id)
         {
             DataTable dt = new DataTable();
-            string sql = "SELECT * FROM " + tableName + " WHERE id = @id";
+            string sql = "SELECT * FROM " + tableName + " WHERE Id = @id";
             using (SqlCommand cmd = new SqlCommand(sql, OpenConnection()))
             {
                 cmd.Parameters.AddWithValue("@id", id);
