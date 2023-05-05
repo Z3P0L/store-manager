@@ -38,7 +38,17 @@ namespace Proyecto_POO.Vistas
                 MessageBox.Show("El producto no existe.");
                 return;
             }
-            dgvProductos.Rows.Add(producto["Id"].ToString(), producto["nombre"].ToString(), Image.FromFile(producto["imagen"].ToString()), producto["cantidad"].ToString(), producto["precio_venta"].ToString(), "Remover");
+            if (Int32.Parse(txtCantidad.Text) <= 0)
+            {
+                MessageBox.Show("La cantidad debe ser superior a 0.");
+                return;
+            }
+            if (Int32.Parse(txtCantidad.Text) > Int32.Parse(producto["cantidad"].ToString()))
+            {
+                MessageBox.Show("Aviso: La cantidad es superior al stock (" + producto["cantidad"].ToString() + ").");
+                return;
+            }
+            dgvProductos.Rows.Add(producto["Id"].ToString(), producto["nombre"].ToString(), Image.FromFile(producto["imagen"].ToString()), txtCantidad.Text, producto["precio_venta"].ToString(), "Remover");
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
