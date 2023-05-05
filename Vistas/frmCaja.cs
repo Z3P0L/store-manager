@@ -66,7 +66,7 @@ namespace Proyecto_POO.Vistas
             calcTotal();
         }
 
-        private void calcTotal()
+        private double calcTotal()
         {
             double total = 0;
             foreach (DataGridViewRow row in dgvProductos.Rows)
@@ -77,6 +77,33 @@ namespace Proyecto_POO.Vistas
                 total += precioTotal;
             }
             lblTotal.Text = total.ToString("C2");
+
+            return total;
+        }
+
+        private void btnPago_Click(object sender, EventArgs e)
+        {
+            DateTime fecha = DateTime.Now.Date;
+            float total = (float)calcTotal();
+
+            string sql = "INSERT INTO ventas(usuario, fecha, total) VALUES('" + Int32.Parse(GlobalVars.GlobalUserLogged) + "', '" + fecha.ToString("dd/MM/yyyy") + "', '" + total + "')";
+            cn.Query(sql);
+
+            sql = "SELECT TOP 1 Id FROM ventas ORDER BY Id DESC;";
+            dt = cn.Query(sql);
+            int ventaId = Convert.ToInt32(dt.Rows[0]["Id"]);
+
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                int productoId = Convert.ToInt32(row.Cells["Id"].Value);
+                int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+
+                sql = "INSERT INTO ventas_productos (Id, producto, cantidad) VALUES (" + ventaId + ", " + productoId + ", " + cantidad + ")";
+                cn.Query(sql);
+            }
+
+            dgvProductos.Rows.Clear();
+            lblTotal.Text = 0.ToString("C2");
         }
     }
 }
