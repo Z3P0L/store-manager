@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proyecto_POO.Clases;
 
 namespace Proyecto_POO.Vistas
 {
     public partial class frmCaja : Form
     {
+        database cn;
+        DataTable dt;
         public frmCaja()
         {
             InitializeComponent();
