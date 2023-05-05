@@ -20,3 +20,10 @@ C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyect
 C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.exe
 C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.pdb
 C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmRegister.resources
+C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmInventario.resources
+C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmMain.resources
+C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmProducto.resources
+C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmCaja.resources
+C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmEmpleado.resources
+C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmEmpleados.resources
+C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\obj\Debug\Proyecto_POO.Vistas.frmReportes.resources
