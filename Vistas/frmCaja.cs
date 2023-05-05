@@ -19,6 +19,8 @@ namespace Proyecto_POO.Vistas
         {
             InitializeComponent();
             dataGridViewDesign();
+
+            cn = new database();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
