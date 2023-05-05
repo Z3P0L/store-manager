@@ -156,6 +156,7 @@ namespace Proyecto_POO.Vistas
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(58, 20);
             this.txtCantidad.TabIndex = 28;
+            this.txtCantidad.Text = "1";
             // 
             // frmCaja
             // 
