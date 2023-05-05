@@ -77,9 +77,17 @@ namespace Proyecto_POO.Vistas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            frmMain main = new frmMain();
-            main.Show();
-            this.Hide();
+            if (GlobalVars.GlobalUserLogged != null)
+            {
+                frmMain main = new frmMain();
+                main.Show();
+                this.Hide();
+            } else
+            {
+                frmLogin login = new frmLogin();
+                login.Show();
+                this.Hide();
+            }
         }
     }
 }

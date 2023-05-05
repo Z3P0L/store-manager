@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_POO.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,12 @@ namespace Proyecto_POO.Vistas
     {
         public frmMain()
         {
+            if (GlobalVars.GlobalUserLogged == null)
+            {
+                frmLogin login = new frmLogin();
+                login.Show();
+                this.Hide();
+            }
             InitializeComponent();
         }
 
