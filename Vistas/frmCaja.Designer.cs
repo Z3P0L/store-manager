@@ -139,6 +139,7 @@ namespace Proyecto_POO.Vistas
             this.btnPago.TabIndex = 26;
             this.btnPago.Text = "Pago";
             this.btnPago.UseVisualStyleBackColor = true;
+            this.btnPago.Click += new System.EventHandler(this.btnPago_Click);
             // 
             // lblCantidad
             // 
