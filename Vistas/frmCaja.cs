@@ -100,6 +100,9 @@ namespace Proyecto_POO.Vistas
 
                 sql = "INSERT INTO ventas_productos (Id, producto, cantidad) VALUES (" + ventaId + ", " + productoId + ", " + cantidad + ")";
                 cn.Query(sql);
+
+                sql = "UPDATE productos SET cantidad=" + cantidad + " WHERE Id=" + productoId;
+                cn.Query(sql);
             }
 
             dgvProductos.Rows.Clear();
