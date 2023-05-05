@@ -1,4 +1,6 @@
-﻿namespace Proyecto_POO.Vistas
+﻿using System.Windows.Forms;
+
+namespace Proyecto_POO.Vistas
 {
     partial class frmCaja
     {
@@ -87,6 +89,7 @@
             this.btnAgregar.TabIndex = 22;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvProductos
             // 
@@ -155,6 +158,27 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dataGridViewDesign()
+        {
+            dgvProductos.Columns.Add("Id", "Id");
+            dgvProductos.Columns.Add("Nombre", "Nombre");
+            dgvProductos.Columns.Add(new DataGridViewImageColumn() { Name = "Imagen", HeaderText = "Imagen", ImageLayout = DataGridViewImageCellLayout.Stretch });
+            dgvProductos.Columns.Add("Cantidad", "Cantidad");
+            dgvProductos.Columns.Add("Precio", "Precio");
+            dgvProductos.Columns.Add(new DataGridViewButtonColumn() { Name = "Acción", HeaderText = "Acción" });
+
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.ReadOnly = true;
+            dgvProductos.RowTemplate.Height = 70;
+
+            foreach (DataGridViewColumn col in dgvProductos.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            dgvProductos.Columns["Imagen"].Width = 150;
         }
 
         #endregion
