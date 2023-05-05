@@ -53,7 +53,10 @@ namespace Proyecto_POO.Vistas
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex == dgvProductos.Columns["Acción"].Index && e.RowIndex >= 0)
+            {
+                dgvProductos.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }
