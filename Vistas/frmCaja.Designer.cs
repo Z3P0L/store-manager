@@ -37,13 +37,14 @@
             this.lblTotalTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnPago = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(345, 12);
+            this.btnVolver.Location = new System.Drawing.Point(246, 12);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(122, 46);
             this.btnVolver.TabIndex = 18;
@@ -124,11 +125,21 @@
             this.lblTotal.Text = "0";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnPago
+            // 
+            this.btnPago.Location = new System.Drawing.Point(374, 12);
+            this.btnPago.Name = "btnPago";
+            this.btnPago.Size = new System.Drawing.Size(122, 46);
+            this.btnPago.TabIndex = 26;
+            this.btnPago.Text = "Pago";
+            this.btnPago.UseVisualStyleBackColor = true;
+            // 
             // frmCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPago);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTotalTitle);
             this.Controls.Add(this.dgvProductos);
@@ -157,5 +168,6 @@
         private System.Windows.Forms.Label lblTotalTitle;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnPago;
     }
 }
