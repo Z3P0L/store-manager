@@ -36,12 +36,11 @@ namespace Proyecto_POO.Vistas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string sql;
+            string scrambledPassword = null;
             if (txtClave.Text.Length > 0)
             {
-                string scrambledPassword;
                 scrambledPassword = Scrambler.ScramblePassword(txtClave.Text);
                 sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, clave=@clave, nombre=@nombre, apellido=@apellido WHERE documento=" + GlobalVars.GlobalDocumento;
-                cmd.Parameters.AddWithValue("clave", scrambledPassword);
             } else
             {
                 sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, nombre=@nombre, apellido=@apellido WHERE documento=" + GlobalVars.GlobalDocumento;
@@ -52,6 +51,7 @@ namespace Proyecto_POO.Vistas
             cmd.Parameters.AddWithValue("documento_tipo", cbDocumentoTipo.Text);
             cmd.Parameters.AddWithValue("nombre", txtNombre.Text);
             cmd.Parameters.AddWithValue("apellido", txtApellido.Text);
+            if (scrambledPassword != null) cmd.Parameters.AddWithValue("clave", scrambledPassword);
             cmd.ExecuteNonQuery();
 
             MessageBox.Show("Información guardada exitosamente.");
