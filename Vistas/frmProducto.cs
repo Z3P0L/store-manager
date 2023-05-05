@@ -30,6 +30,7 @@ namespace Proyecto_POO.Vistas
                 if (producto != null)
                 {
                     txtId.Text = producto["Id"].ToString();
+                    txtId.Enabled = false;
                     txtNombre.Text = producto["nombre"].ToString();
                     txtCantidad.Text = producto["cantidad"].ToString();
                     txtPrecioCompra.Text = producto["precio_compra"].ToString();
@@ -87,7 +88,7 @@ namespace Proyecto_POO.Vistas
                 sql = "INSERT INTO productos(Id, nombre, imagen, cantidad, precio_compra, precio_venta) VALUES(@Id, @nombre, @imagen, @cantidad, @precio_compra, @precio_venta)";
             } else
             {
-                sql = "UPDATE productos SET Id=@Id, nombre=@nombre, imagen=@imagen, cantidad=@cantidad, precio_compra=@precio_compra, precio_venta=@precio_venta";
+                sql = "UPDATE productos SET Id=@Id, nombre=@nombre, imagen=@imagen, cantidad=@cantidad, precio_compra=@precio_compra, precio_venta=@precio_venta WHERE Id=" + GlobalVars.GlobalId;
             }
 
             cmd = new SqlCommand(sql, cn.OpenConnection());
