@@ -116,6 +116,7 @@
             this.Name = "frmLogin";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.VisibleChanged += new System.EventHandler(this.frmLogin_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

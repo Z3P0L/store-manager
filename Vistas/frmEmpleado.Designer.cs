@@ -179,6 +179,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Name = "frmEmpleado";
             this.Text = "frmEmpleado";
+            this.VisibleChanged += new System.EventHandler(this.frmEmpleado_VisibleChanged);
             this.gbProductoTexto.ResumeLayout(false);
             this.gbProductoTexto.PerformLayout();
             this.ResumeLayout(false);

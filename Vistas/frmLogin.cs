@@ -66,5 +66,10 @@ namespace Proyecto_POO.Vistas
             register.Show();
             this.Hide();
         }
+
+        private void frmLogin_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible) GlobalVars.LastForm = this;
+        }
     }
 }

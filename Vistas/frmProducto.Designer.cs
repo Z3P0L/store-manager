@@ -215,6 +215,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Name = "frmProducto";
             this.Text = "Producto";
+            this.VisibleChanged += new System.EventHandler(this.frmProducto_VisibleChanged);
             this.gbProductoTexto.ResumeLayout(false);
             this.gbProductoTexto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductoImagen)).EndInit();

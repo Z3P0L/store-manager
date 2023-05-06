@@ -185,6 +185,7 @@
             this.Controls.Add(this.lblTittleUtilidadBruta);
             this.Name = "frmReportes";
             this.Text = "Reportes";
+            this.VisibleChanged += new System.EventHandler(this.frmReportes_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

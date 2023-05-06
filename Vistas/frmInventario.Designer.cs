@@ -87,6 +87,7 @@ namespace Proyecto_POO.Vistas
             this.Controls.Add(this.btnNuevoProducto);
             this.Name = "frmInventario";
             this.Text = "Inventario";
+            this.VisibleChanged += new System.EventHandler(this.frmInventario_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

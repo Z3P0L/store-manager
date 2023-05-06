@@ -8,12 +8,6 @@ namespace Proyecto_POO.Vistas
     {
         public frmMain()
         {
-            if (GlobalVars.GlobalUserLogged == null)
-            {
-                frmLogin login = new frmLogin();
-                login.Show();
-                this.Hide();
-            }
             InitializeComponent();
         }
 
@@ -48,6 +42,11 @@ namespace Proyecto_POO.Vistas
             frmReportes reportes = new frmReportes();
             reportes.Show();
             this.Hide();
+        }
+
+        private void frmMain_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible) GlobalVars.LastForm = this;
         }
     }
 }

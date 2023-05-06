@@ -74,5 +74,10 @@ namespace Proyecto_POO.Vistas
                 }
             }
         }
+
+        private void frmEmpleados_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible) GlobalVars.LastForm = this;
+        }
     }
 }

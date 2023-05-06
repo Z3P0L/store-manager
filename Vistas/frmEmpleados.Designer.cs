@@ -87,6 +87,7 @@ namespace Proyecto_POO.Vistas
             this.Controls.Add(this.btnNuevoEmpleado);
             this.Name = "frmEmpleados";
             this.Text = "Empleados";
+            this.VisibleChanged += new System.EventHandler(this.frmEmpleados_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

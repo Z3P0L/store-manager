@@ -70,17 +70,13 @@ namespace Proyecto_POO.Vistas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            if (GlobalVars.GlobalUserLogged != null)
-            {
-                frmMain main = new frmMain();
-                main.Show();
-                this.Hide();
-            } else
-            {
-                frmLogin login = new frmLogin();
-                login.Show();
-                this.Hide();
-            }
+            GlobalVars.LastForm.Show();
+            this.Hide();
+        }
+
+        private void frmRegister_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible) GlobalVars.LastForm = this;
         }
     }
 }

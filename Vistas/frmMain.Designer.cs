@@ -110,6 +110,7 @@
             this.Controls.Add(this.lblHeader);
             this.Name = "frmMain";
             this.Text = "Interfaz";
+            this.VisibleChanged += new System.EventHandler(this.frmMain_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

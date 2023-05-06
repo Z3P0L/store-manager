@@ -20,8 +20,7 @@ namespace Proyecto_POO.Vistas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            frmMain main = new frmMain();
-            main.Show();
+            GlobalVars.LastForm.Show();
             this.Hide();
         }
 
@@ -69,6 +68,11 @@ namespace Proyecto_POO.Vistas
             getUtilidadNeta();
             getProductoMasVendido();
             getVentaMasGrande();
+        }
+
+        private void frmReportes_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible) GlobalVars.LastForm = this;
         }
     }
 }

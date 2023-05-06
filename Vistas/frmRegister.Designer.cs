@@ -188,6 +188,7 @@
             this.Controls.Add(this.lblTipoDocumento);
             this.Name = "frmRegister";
             this.Text = "Registro";
+            this.VisibleChanged += new System.EventHandler(this.frmRegister_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

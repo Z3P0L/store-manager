@@ -111,8 +111,7 @@ namespace Proyecto_POO.Vistas
         private void btnVolver_Click(object sender, EventArgs e)
         {
             GlobalVars.GlobalId = -1;
-            frmInventario inventario = new frmInventario();
-            inventario.Show();
+            GlobalVars.LastForm.Show();
             this.Hide();
         }
 
@@ -120,6 +119,11 @@ namespace Proyecto_POO.Vistas
         {
             if (GlobalVars.GlobalId == -1) return false;
             return true;
+        }
+
+        private void frmProducto_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible) GlobalVars.LastForm = this;
         }
     }
 }

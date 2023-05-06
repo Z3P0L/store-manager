@@ -177,6 +177,7 @@ namespace Proyecto_POO.Vistas
             this.Controls.Add(this.btnVolver);
             this.Name = "frmCaja";
             this.Text = "Caja";
+            this.VisibleChanged += new System.EventHandler(this.frmCaja_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
