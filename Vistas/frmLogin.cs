@@ -49,6 +49,7 @@ namespace Proyecto_POO.Vistas
                 }
             } else {
                 GlobalVars.GlobalUserLogged = txtUsuario.Text;
+                GlobalVars.UserType = dt.Rows[0]["rol"].ToString();
                 frmMain main = new frmMain();
                 main.Show();
                 this.Hide();
