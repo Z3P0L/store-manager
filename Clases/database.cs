@@ -1,10 +1,16 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Proyecto_POO.Clases
 {
     internal class database
     {
+        private DataTable dt;
+        private SqlCommand cmd;
+        private SqlDataAdapter da;
+
         public static string dbRoute = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\master.mdf;Integrated Security=True;Connect Timeout=30";
 
         private SqlConnection connection = new SqlConnection( dbRoute );
@@ -21,14 +27,22 @@ namespace Proyecto_POO.Clases
             return connection;
         }
 
-        public DataTable Query(string sql)
+        public DataTable Query(string sql, List<SqlParameter> parameters = null)
         {
-            SqlCommand cmd = new SqlCommand(sql, OpenConnection());
+            cmd = new SqlCommand(sql, OpenConnection());
+
+            if (parameters != null)
+            {
+                foreach (SqlParameter param in parameters)
+                {
+                    cmd.Parameters.Add(param);
+                }
+            }
 
             if (sql.ToLower().StartsWith("select"))
             {
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
+                da = new SqlDataAdapter(cmd);
+                dt = new DataTable();
                 da.Fill(dt);
                 CloseConnection();
                 return dt;
@@ -42,31 +56,25 @@ namespace Proyecto_POO.Clases
 
         public DataTable GetAll(string tableName)
         {
-            DataTable dt = new DataTable();
             string sql = "SELECT * FROM " + tableName;
-            using (SqlCommand cmd = new SqlCommand(sql, OpenConnection()))
-            {
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                {
-                    da.Fill(dt);
-                }
-            }
+            dt = new DataTable();
+            cmd = new SqlCommand(sql, OpenConnection());
+            da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
             CloseConnection();
             return dt;
         }
 
         public DataRow GetById(string tableName, int id)
         {
-            DataTable dt = new DataTable();
             string sql = "SELECT * FROM " + tableName + " WHERE Id = @id";
-            using (SqlCommand cmd = new SqlCommand(sql, OpenConnection()))
-            {
-                cmd.Parameters.AddWithValue("@id", id);
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                {
-                    da.Fill(dt);
-                }
-            }
+            dt = new DataTable();
+            cmd = new SqlCommand(sql, OpenConnection());
+            cmd.Parameters.AddWithValue("@id", id);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(dt);    
+            
             CloseConnection();
             if (dt.Rows.Count > 0)
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using Proyecto_POO.Clases;
@@ -8,7 +9,6 @@ namespace Proyecto_POO.Vistas
     public partial class frmRegister : Form
     {
         database cn;
-        SqlCommand cmd;
         public frmRegister()
         {
             InitializeComponent();
@@ -39,14 +39,16 @@ namespace Proyecto_POO.Vistas
 
             DateTime fecha = dtpNacimiento.Value.Date;
             string sql = "INSERT INTO usuarios(documento, documento_tipo, clave, nombre, apellido, nacimiento) VALUES(@documento, @tipo_documento, @clave, @nombre, @apellido, @nacimiento)";
-            cmd = new SqlCommand(sql, cn.OpenConnection());
-            cmd.Parameters.AddWithValue("@documento", txtDocumento.Text);
-            cmd.Parameters.AddWithValue("@tipo_documento", cmbTipoDocumento.Text);
-            cmd.Parameters.AddWithValue("@clave", scrambledPassword);
-            cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-            cmd.Parameters.AddWithValue("@apellido", txtApellido.Text);
-            cmd.Parameters.AddWithValue("@nacimiento", fecha);
-            cmd.ExecuteNonQuery();
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@documento", txtDocumento.Text),
+                new SqlParameter("@tipo_documento", cmbTipoDocumento.Text),
+                new SqlParameter("@clave", scrambledPassword),
+                new SqlParameter("@nombre", txtNombre.Text),
+                new SqlParameter("@apellido", txtApellido.Text),
+                new SqlParameter("@nacimiento", fecha)
+            };
+            cn.Query(sql, parameters);
             MessageBox.Show("Registro exitoso");
 
             DialogResult result = MessageBox.Show("¿Desea agregar otro usuario?", "Agregar Usuario", MessageBoxButtons.YesNo);

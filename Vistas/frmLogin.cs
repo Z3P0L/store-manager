@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -9,8 +10,6 @@ namespace Proyecto_POO.Vistas
     public partial class frmLogin : Form
     {
         database cn;
-        SqlCommand cmd;
-        SqlDataAdapter da;
         DataTable dt;
         int count = 0;
         public frmLogin()
@@ -28,11 +27,13 @@ namespace Proyecto_POO.Vistas
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             string password = Scrambler.ScramblePassword(txtClave.Text);
-
-            cmd = new SqlCommand( "SELECT * FROM usuarios WHERE documento = '" + txtUsuario.Text + "' AND clave = '" + password + "'", cn.OpenConnection() );
-            da = new SqlDataAdapter( cmd );
-            dt = new DataTable();
-            da.Fill( dt );
+            string sql = "SELECT * FROM usuarios WHERE documento = @documento AND clave = @clave";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@documento", txtUsuario.Text),
+                new SqlParameter("@clave", password)
+            };
+            dt = cn.Query(sql, parameters);
 
             if ( dt.Rows.Count <= 0 )
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -11,7 +12,6 @@ namespace Proyecto_POO.Vistas
     public partial class frmProducto : Form
     {
         database cn;
-        SqlCommand cmd;
         string imgRoute = "";
         public frmProducto()
         {
@@ -82,17 +82,20 @@ namespace Proyecto_POO.Vistas
                 sql = "INSERT INTO productos(Id, nombre, imagen, cantidad, precio_compra, precio_venta) VALUES(@Id, @nombre, @imagen, @cantidad, @precio_compra, @precio_venta)";
             } else
             {
-                sql = "UPDATE productos SET Id=@Id, nombre=@nombre, imagen=@imagen, cantidad=@cantidad, precio_compra=@precio_compra, precio_venta=@precio_venta WHERE Id=" + GlobalVars.GlobalId;
+                sql = "UPDATE productos SET Id=@Id, nombre=@nombre, imagen=@imagen, cantidad=@cantidad, precio_compra=@precio_compra, precio_venta=@precio_venta WHERE Id = GlobalId";
             }
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Id", id),
+                new SqlParameter("@nombre", txtNombre.Text),
+                new SqlParameter("@imagen", imgRoute),
+                new SqlParameter("@cantidad", cantidad),
+                new SqlParameter("@precio_compra", precioCompra),
+                new SqlParameter("@precio_venta", precioVenta),
+                new SqlParameter("@GlobalDocumento", GlobalVars.GlobalId)
 
-            cmd = new SqlCommand(sql, cn.OpenConnection());
-            cmd.Parameters.AddWithValue("@Id", id);
-            cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-            cmd.Parameters.AddWithValue("@imagen", imgRoute);
-            cmd.Parameters.AddWithValue("@cantidad", cantidad);
-            cmd.Parameters.AddWithValue("@precio_compra", precioCompra);
-            cmd.Parameters.AddWithValue("@precio_venta", precioVenta);
-            cmd.ExecuteNonQuery();
+            };
+            cn.Query(sql, parameters);
 
             GlobalVars.GlobalId = -1;
             txtCantidad.Clear();

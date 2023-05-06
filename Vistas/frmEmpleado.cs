@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -9,8 +10,6 @@ namespace Proyecto_POO.Vistas
     public partial class frmEmpleado : Form
     {
         database cn;
-        SqlCommand cmd;
-        SqlDataAdapter da;
         DataTable dt;
         public frmEmpleado()
         {
@@ -34,19 +33,21 @@ namespace Proyecto_POO.Vistas
             if (txtClave.Text.Length > 0)
             {
                 scrambledPassword = Scrambler.ScramblePassword(txtClave.Text);
-                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, clave=@clave, nombre=@nombre, apellido=@apellido WHERE documento=" + GlobalVars.GlobalDocumento;
+                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, clave=@clave, nombre=@nombre, apellido=@apellido WHERE documento = @GlobalDocumento";
             } else
             {
-                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, nombre=@nombre, apellido=@apellido WHERE documento=" + GlobalVars.GlobalDocumento;
+                sql = "UPDATE usuarios SET documento=@documento, documento_tipo=@documento_tipo, nombre=@nombre, apellido=@apellido WHERE documento = @GlobalDocumento";
             }
-
-            cmd = new SqlCommand(sql, cn.OpenConnection());
-            cmd.Parameters.AddWithValue("documento", txtDocumento.Text);
-            cmd.Parameters.AddWithValue("documento_tipo", cbDocumentoTipo.Text);
-            cmd.Parameters.AddWithValue("nombre", txtNombre.Text);
-            cmd.Parameters.AddWithValue("apellido", txtApellido.Text);
-            if (scrambledPassword != null) cmd.Parameters.AddWithValue("clave", scrambledPassword);
-            cmd.ExecuteNonQuery();
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@documento", txtDocumento.Text),
+                new SqlParameter("@documento_tipo", cbDocumentoTipo.Text),
+                new SqlParameter("@nombre", txtNombre.Text),
+                new SqlParameter("@apellido", txtApellido.Text),
+                new SqlParameter("@GlobalDocumento", GlobalVars.GlobalDocumento)
+            };
+            if (scrambledPassword != null) parameters.Add(new SqlParameter("@clave", scrambledPassword));
+            cn.Query(sql, parameters);
 
             MessageBox.Show("Información guardada exitosamente.");
         }
@@ -66,12 +67,13 @@ namespace Proyecto_POO.Vistas
 
         public DataRow getUsuario()
         {
-            string sql = "SELECT * FROM usuarios WHERE documento=@documento";
-            cmd = new SqlCommand(sql, cn.OpenConnection());
-            cmd.Parameters.AddWithValue("@documento", GlobalVars.GlobalDocumento);
-            da = new SqlDataAdapter(cmd);
-            dt = new DataTable();
-            da.Fill(dt);
+            string sql = "SELECT * FROM usuarios WHERE documento = @documento";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@documento", GlobalVars.GlobalDocumento)
+            };
+
+            dt = cn.Query(sql, parameters);
 
             return dt.Rows[0];
         }

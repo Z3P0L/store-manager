@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using Proyecto_POO.Clases;
@@ -59,8 +61,12 @@ namespace Proyecto_POO.Vistas
                 DialogResult result = MessageBox.Show("¿Desea eliminar el producto " + dgvProductos.Rows[e.RowIndex].Cells["nombre"].Value + "?", "Confirmar eliminación", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    string sql = "DELETE FROM productos WHERE Id=" + productId;
-                    cn.Query(sql);
+                    string sql = "DELETE FROM productos WHERE Id = @Id";
+                    List<SqlParameter> parameters = new List<SqlParameter>
+                    {
+                        new SqlParameter("@Id", productId)
+                    };
+                    cn.Query(sql, parameters);
                     MessageBox.Show("Producto eliminado exitosamente.");
 
                     dgvProductos.Rows.Clear();

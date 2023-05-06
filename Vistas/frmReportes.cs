@@ -9,7 +9,6 @@ namespace Proyecto_POO.Vistas
     public partial class frmReportes : Form
     {
         database cn;
-        SqlDataAdapter da;
         DataTable dt;
         public frmReportes()
         {

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using Proyecto_POO.Clases;
@@ -81,8 +83,14 @@ namespace Proyecto_POO.Vistas
             DateTime fecha = DateTime.Now.Date;
             float total = (float)calcTotal();
 
-            string sql = "INSERT INTO ventas(usuario, fecha, total) VALUES('" + Int32.Parse(GlobalVars.GlobalUserLogged) + "', '" + fecha.ToString("dd/MM/yyyy") + "', '" + total + "')";
-            cn.Query(sql);
+            string sql = "INSERT INTO ventas(usuario, fecha, total) VALUES(@usuario, @fecha, @total)";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@usuario", Int32.Parse(GlobalVars.GlobalUserLogged)),
+                new SqlParameter("@fecha", fecha.ToString("dd/MM/yyyy")),
+                new SqlParameter("@total", total)
+            };
+            cn.Query(sql, parameters);
 
             sql = "SELECT TOP 1 Id FROM ventas ORDER BY Id DESC;";
             dt = cn.Query(sql);
@@ -93,11 +101,18 @@ namespace Proyecto_POO.Vistas
                 int productoId = Convert.ToInt32(row.Cells["Id"].Value);
                 int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
 
-                sql = "INSERT INTO ventas_productos (Id, producto, cantidad) VALUES (" + ventaId + ", " + productoId + ", " + cantidad + ")";
-                cn.Query(sql);
+                sql = "INSERT INTO ventas_productos (Id, producto, cantidad) VALUES (@Id, @producto, @cantidad)";
+                parameters.Clear();
+                parameters.Add(new SqlParameter("@Id", ventaId));
+                parameters.Add(new SqlParameter("@producto", productoId));
+                parameters.Add(new SqlParameter("@cantidad", cantidad));
+                cn.Query(sql, parameters);
 
-                sql = "UPDATE productos SET cantidad=" + cantidad + " WHERE Id=" + productoId;
-                cn.Query(sql);
+                sql = "UPDATE productos SET cantidad = @cantidad WHERE Id = @Id";
+                parameters.Clear();
+                parameters.Add(new SqlParameter("@cantidad", cantidad));
+                parameters.Add(new SqlParameter("@Id", productoId));
+                cn.Query(sql, parameters);
             }
 
             dgvProductos.Rows.Clear();
