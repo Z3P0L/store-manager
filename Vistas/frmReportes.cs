@@ -30,9 +30,11 @@ namespace Proyecto_POO.Vistas
 
             dt = new DataTable();
             dt = cn.Query(sql);
-            float utilidadBrutaTotal = Convert.ToSingle(dt.Rows[0]["utilidad_bruta"]);
-
-            lblUtilidadBruta.Text = utilidadBrutaTotal.ToString("C2");
+            if (dt.Rows.Count > 0)
+            {
+                float utilidadBrutaTotal = Convert.ToSingle(dt.Rows[0]["utilidad_bruta"]);
+                lblUtilidadBruta.Text = utilidadBrutaTotal.ToString("C2");
+            }
         }
 
         private void getUtilidadNeta()
@@ -41,9 +43,11 @@ namespace Proyecto_POO.Vistas
 
             dt = new DataTable();
             dt = cn.Query(sql);
-            float utilidadNetaTotal = Convert.ToSingle(dt.Rows[0]["utilidad_neta"]);
-
-            lblUtilidadNeta.Text = utilidadNetaTotal.ToString("C2");
+            if (dt.Rows.Count > 0)
+            {
+                float utilidadNetaTotal = Convert.ToSingle(dt.Rows[0]["utilidad_neta"]);
+                lblUtilidadNeta.Text = utilidadNetaTotal.ToString("C2");
+            }
         }
 
         private void getProductoMasVendido()
@@ -51,7 +55,10 @@ namespace Proyecto_POO.Vistas
             string sql = "SELECT TOP 1 p.nombre, SUM(vp.cantidad) AS total_vendido FROM ventas v INNER JOIN ventas_productos vp ON v.Id = vp.Id INNER JOIN productos p ON vp.producto = p.Id GROUP BY p.nombre ORDER BY total_vendido DESC";
             dt = new DataTable();
             dt = cn.Query(sql);
-            lblProducto.Text = dt.Rows[0]["nombre"].ToString() + "(" + dt.Rows[0]["total_vendido"] + ")";
+            if (dt.Rows.Count > 0)
+            {
+                lblProducto.Text = dt.Rows[0]["nombre"].ToString() + "(" + dt.Rows[0]["total_vendido"] + ")";
+            }
         }
 
         private void getVentaMasGrande()
@@ -59,7 +66,10 @@ namespace Proyecto_POO.Vistas
             string sql = "SELECT TOP 1 total, COUNT(*) AS cantidad FROM ventas GROUP BY total ORDER BY total DESC";
             dt = new DataTable();
             dt = cn.Query(sql);
-            lblVenta.Text = dt.Rows[0]["total"].ToString() + " (" + dt.Rows[0]["cantidad"].ToString() + ")";
+            if (dt.Rows.Count > 0)
+            {
+                lblVenta.Text = dt.Rows[0]["total"].ToString() + " (" + dt.Rows[0]["cantidad"].ToString() + ")";
+            }
         }
 
         private void Init()
