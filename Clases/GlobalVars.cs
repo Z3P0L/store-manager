@@ -7,6 +7,7 @@ namespace Proyecto_POO.Clases
         private static int _GlobalId;
         private static int _GlobalDocumento;
         private static string _GlobalUserLogged;
+        private static string _UserType;
         private static Form _LastForm;
 
         public static int GlobalId
@@ -25,6 +26,12 @@ namespace Proyecto_POO.Clases
         {
             get { return _GlobalUserLogged; }
             set { _GlobalUserLogged = value; }
+        }
+
+        public static string UserType
+        {
+            get { return _UserType; }
+            set { _UserType = value; }
         }
 
         public static Form LastForm
