@@ -82,7 +82,7 @@ namespace Proyecto_POO.Vistas
                 sql = "INSERT INTO productos(Id, nombre, imagen, cantidad, precio_compra, precio_venta) VALUES(@Id, @nombre, @imagen, @cantidad, @precio_compra, @precio_venta)";
             } else
             {
-                sql = "UPDATE productos SET Id=@Id, nombre=@nombre, imagen=@imagen, cantidad=@cantidad, precio_compra=@precio_compra, precio_venta=@precio_venta WHERE Id = GlobalId";
+                sql = "UPDATE productos SET Id=@Id, nombre=@nombre, imagen=@imagen, cantidad=@cantidad, precio_compra=@precio_compra, precio_venta=@precio_venta WHERE Id = @GlobalId";
             }
             List<SqlParameter> parameters = new List<SqlParameter>
             {
@@ -92,7 +92,7 @@ namespace Proyecto_POO.Vistas
                 new SqlParameter("@cantidad", cantidad),
                 new SqlParameter("@precio_compra", precioCompra),
                 new SqlParameter("@precio_venta", precioVenta),
-                new SqlParameter("@GlobalDocumento", GlobalVars.GlobalId)
+                new SqlParameter("@GlobalId", GlobalVars.GlobalId)
 
             };
             cn.Query(sql, parameters);
