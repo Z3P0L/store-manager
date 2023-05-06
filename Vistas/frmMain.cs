@@ -9,6 +9,14 @@ namespace Proyecto_POO.Vistas
         public frmMain()
         {
             InitializeComponent();
+            if (GlobalVars.UserType != "admin")
+            {
+                btnUsuarios.Visible = false;
+                btnReportes.Visible = false;
+                btnProductos.Visible = false;
+                this.btnCaja.Location = new System.Drawing.Point(16, 72);
+                this.ClientSize = new System.Drawing.Size(255, 133);
+            }
         }
 
         private void btnCaja_Click(object sender, EventArgs e)
