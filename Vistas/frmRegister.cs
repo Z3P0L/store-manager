@@ -38,7 +38,7 @@ namespace Proyecto_POO.Vistas
             }
 
             DateTime fecha = dtpNacimiento.Value.Date;
-            string sql = "INSERT INTO usuarios(documento, documento_tipo, clave, nombre, apellido, nacimiento) VALUES(@documento, @tipo_documento, @clave, @nombre, @apellido, @nacimiento)";
+            string sql = "INSERT INTO usuarios(documento, documento_tipo, clave, nombre, apellido, nacimiento, rol) VALUES(@documento, @tipo_documento, @clave, @nombre, @apellido, @nacimiento, @rol)";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@documento", txtDocumento.Text),
@@ -46,7 +46,8 @@ namespace Proyecto_POO.Vistas
                 new SqlParameter("@clave", scrambledPassword),
                 new SqlParameter("@nombre", txtNombre.Text),
                 new SqlParameter("@apellido", txtApellido.Text),
-                new SqlParameter("@nacimiento", fecha)
+                new SqlParameter("@nacimiento", fecha),
+                new SqlParameter("@rol", "employee")
             };
             cn.Query(sql, parameters);
             MessageBox.Show("Registro exitoso");
