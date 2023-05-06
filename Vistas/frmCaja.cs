@@ -30,7 +30,7 @@ namespace Proyecto_POO.Vistas
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             DataRow producto = cn.GetById("productos", Int32.Parse(txtProductoId.Text));
-            if (producto == null) 
+            if (producto == null)
             {
                 MessageBox.Show("El producto no existe.");
                 return;
@@ -50,7 +50,31 @@ namespace Proyecto_POO.Vistas
                 return;
             }
 
-            dgvProductos.Rows.Add(producto["Id"].ToString(), producto["nombre"].ToString(), Image.FromFile(producto["imagen"].ToString()), cantidadFrm, producto["precio_venta"].ToString(), "Remover");
+            bool found = false;
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                if (row.Cells["Id"].Value.ToString() == producto["Id"].ToString())
+                {
+                    int cantidadActual = Int32.Parse(row.Cells["Cantidad"].Value.ToString());
+                    int nuevaCantidad = cantidadActual + cantidadFrm;
+
+                    if (nuevaCantidad > cantidadDb)
+                    {
+                        MessageBox.Show("Aviso: La cantidad es superior al stock (" + cantidadDb + ").");
+                        return;
+                    }
+
+                    row.Cells["Cantidad"].Value = nuevaCantidad.ToString();
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                dgvProductos.Rows.Add(producto["Id"].ToString(), producto["nombre"].ToString(), Image.FromFile(producto["imagen"].ToString()), cantidadFrm, producto["precio_venta"].ToString(), "Remover");
+            }
+
             calcTotal();
         }
 
