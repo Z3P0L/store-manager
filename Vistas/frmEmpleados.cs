@@ -17,7 +17,6 @@ namespace Proyecto_POO.Vistas
             dataGridViewDesign();
 
             cn = new database();
-            LoadUsuarios();
         }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
@@ -36,6 +35,8 @@ namespace Proyecto_POO.Vistas
 
         private void LoadUsuarios()
         {
+            if (dgvEmpleados.Rows.Count > 0) dgvEmpleados.Rows.Clear();
+
             dt = cn.GetAll("usuarios");
 
             foreach (DataRow dr in dt.Rows)
@@ -68,8 +69,6 @@ namespace Proyecto_POO.Vistas
                     };
                     cn.Query(sql, parameters);
                     MessageBox.Show("Empleado eliminado exitosamente.");
-
-                    dgvEmpleados.Rows.Clear();
                     LoadUsuarios();
                 }
             }
@@ -78,6 +77,7 @@ namespace Proyecto_POO.Vistas
         private void frmEmpleados_VisibleChanged(object sender, EventArgs e)
         {
             if (!this.Visible) GlobalVars.LastForm = this;
+            if (this.Visible) LoadUsuarios();
         }
     }
 }

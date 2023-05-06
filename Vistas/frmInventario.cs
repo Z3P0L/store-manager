@@ -18,7 +18,6 @@ namespace Proyecto_POO.Vistas
             dataGridViewDesign();
 
             cn = new database();
-            LoadProducts();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -37,6 +36,7 @@ namespace Proyecto_POO.Vistas
 
         private void LoadProducts()
         {
+            if (dgvProductos.Rows.Count > 0) dgvProductos.Rows.Clear();
             dt = cn.GetAll("productos");
 
             foreach (DataRow dr in dt.Rows)
@@ -68,8 +68,6 @@ namespace Proyecto_POO.Vistas
                     };
                     cn.Query(sql, parameters);
                     MessageBox.Show("Producto eliminado exitosamente.");
-
-                    dgvProductos.Rows.Clear();
                     LoadProducts();
                 }
             }
@@ -78,6 +76,7 @@ namespace Proyecto_POO.Vistas
         private void frmInventario_VisibleChanged(object sender, EventArgs e)
         {
             if (!this.Visible) GlobalVars.LastForm = this;
+            if (this.Visible) LoadProducts();
         }
     }
 }
