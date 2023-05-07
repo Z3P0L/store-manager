@@ -110,7 +110,7 @@ namespace Proyecto_POO.Vistas
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@usuario", Int32.Parse(GlobalVars.GlobalUserLogged)),
-                new SqlParameter("@fecha", fecha.ToString("dd/MM/yyyy")),
+                new SqlParameter("@fecha", fecha.ToString("yyyy-MM-dd")),
                 new SqlParameter("@total", total)
             };
             cn.Query(sql, parameters);
