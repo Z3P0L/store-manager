@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Reflection;
 
 namespace Proyecto_POO.Clases
 {
@@ -11,8 +13,10 @@ namespace Proyecto_POO.Clases
         private SqlCommand cmd;
         private SqlDataAdapter da;
 
-        public static string dbRoute = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\diear\Desktop\Diego\Universidad\Desarrollo Software POO\pcSetup\Proyecto_POO\master.mdf;Integrated Security=True;Connect Timeout=30";
-
+        public static string currentDirectory = Directory.GetCurrentDirectory();
+        public static string dbPath = Path.Combine(Directory.GetParent(currentDirectory).Parent.FullName, "master.mdf");
+        public static string dbRoute = $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={dbPath};Integrated Security=True;Connect Timeout=30";
+        
         private SqlConnection connection = new SqlConnection( dbRoute );
 
         public SqlConnection OpenConnection()
