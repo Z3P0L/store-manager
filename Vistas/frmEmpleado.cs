@@ -28,8 +28,16 @@ namespace Proyecto_POO.Vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int documento;
             string sql;
             string scrambledPassword = null;
+
+            if (!int.TryParse(txtDocumento.Text, out documento))
+            {
+                MessageBox.Show("El valor ingresado en el campo documento no es válido.");
+                return;
+            }
+
             if (txtClave.Text.Length > 0)
             {
                 scrambledPassword = Scrambler.ScramblePassword(txtClave.Text);
@@ -40,7 +48,7 @@ namespace Proyecto_POO.Vistas
             }
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@documento", txtDocumento.Text),
+                new SqlParameter("@documento", documento),
                 new SqlParameter("@documento_tipo", cbDocumentoTipo.Text),
                 new SqlParameter("@nombre", txtNombre.Text),
                 new SqlParameter("@apellido", txtApellido.Text),

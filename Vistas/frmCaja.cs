@@ -28,7 +28,18 @@ namespace Proyecto_POO.Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            DataRow producto = cn.GetById("productos", Int32.Parse(txtProductoId.Text));
+            int productoId, productoCantidad;
+            if (!int.TryParse(txtProductoId.Text, out productoId))
+            {
+                MessageBox.Show("Agregue un valor de tipo entero en Producto ID.");
+                return;
+            }
+            if (!int.TryParse(txtCantidad.Text, out productoCantidad))
+            {
+                MessageBox.Show("Agregue un valor de tipo entero en Cantidad.");
+                return;
+            }
+            DataRow producto = cn.GetById("productos", productoId);
             if (producto == null)
             {
                 MessageBox.Show("El producto no existe.");
@@ -36,20 +47,48 @@ namespace Proyecto_POO.Vistas
             }
 
             int cantidadDb = Int32.Parse(producto["cantidad"].ToString());
-            int cantidadFrm = Int32.Parse(txtCantidad.Text);
+            int cantidadFrm = productoCantidad;
+            bool found = false;
 
             if (cantidadFrm <= 0)
             {
-                MessageBox.Show("La cantidad debe ser superior a 0.");
-                return;
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    if (row.Cells["Id"].Value.ToString() == producto["Id"].ToString())
+                    {
+                        int cantidadActual = Int32.Parse(row.Cells["Cantidad"].Value.ToString());
+                        int nuevaCantidad = cantidadActual + cantidadFrm;
+
+                        if (nuevaCantidad <= 0)
+                        {
+                            dgvProductos.Rows.RemoveAt(row.Index);
+                        }
+                        else
+                        {
+                            row.Cells["Cantidad"].Value = nuevaCantidad.ToString();
+                        }
+
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found)
+                {
+                    calcTotal();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad debe ser superior a 0.");
+                    return;
+                }
             }
             if (cantidadFrm > cantidadDb)
             {
                 MessageBox.Show("Aviso: La cantidad es superior al stock (" + cantidadDb + ").");
                 return;
             }
-
-            bool found = false;
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 if (row.Cells["Id"].Value.ToString() == producto["Id"].ToString())

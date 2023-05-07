@@ -20,6 +20,7 @@ namespace Proyecto_POO.Vistas
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            int documento;
             string password = txtContrasena.Text;
             string scrambledPassword = Scrambler.ScramblePassword(password);
 
@@ -37,11 +38,17 @@ namespace Proyecto_POO.Vistas
                 return;
             }
 
+            if (!int.TryParse(txtDocumento.Text, out documento))
+            {
+                MessageBox.Show("El valor ingresado en el campo documento no es válido.");
+                return;
+            }
+
             DateTime fecha = dtpNacimiento.Value.Date;
             string sql = "INSERT INTO usuarios(documento, documento_tipo, clave, nombre, apellido, nacimiento, rol) VALUES(@documento, @tipo_documento, @clave, @nombre, @apellido, @nacimiento, @rol)";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
-                new SqlParameter("@documento", txtDocumento.Text),
+                new SqlParameter("@documento", documento),
                 new SqlParameter("@tipo_documento", cmbTipoDocumento.Text),
                 new SqlParameter("@clave", scrambledPassword),
                 new SqlParameter("@nombre", txtNombre.Text),
