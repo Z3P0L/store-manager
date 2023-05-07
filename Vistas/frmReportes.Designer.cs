@@ -41,6 +41,10 @@
             this.lblProducto = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblVenta = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.lblHasta = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -51,7 +55,7 @@
             // 
             this.lblTittleUtilidadBruta.AutoSize = true;
             this.lblTittleUtilidadBruta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTittleUtilidadBruta.Location = new System.Drawing.Point(12, 76);
+            this.lblTittleUtilidadBruta.Location = new System.Drawing.Point(12, 137);
             this.lblTittleUtilidadBruta.Name = "lblTittleUtilidadBruta";
             this.lblTittleUtilidadBruta.Size = new System.Drawing.Size(141, 25);
             this.lblTittleUtilidadBruta.TabIndex = 0;
@@ -61,7 +65,7 @@
             // 
             this.lblTitleUtilidadNeta.AutoSize = true;
             this.lblTitleUtilidadNeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleUtilidadNeta.Location = new System.Drawing.Point(323, 76);
+            this.lblTitleUtilidadNeta.Location = new System.Drawing.Point(318, 137);
             this.lblTitleUtilidadNeta.Name = "lblTitleUtilidadNeta";
             this.lblTitleUtilidadNeta.Size = new System.Drawing.Size(135, 25);
             this.lblTitleUtilidadNeta.TabIndex = 1;
@@ -71,7 +75,7 @@
             // 
             this.lblTitleProducto.AutoSize = true;
             this.lblTitleProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleProducto.Location = new System.Drawing.Point(12, 180);
+            this.lblTitleProducto.Location = new System.Drawing.Point(12, 241);
             this.lblTitleProducto.Name = "lblTitleProducto";
             this.lblTitleProducto.Size = new System.Drawing.Size(226, 25);
             this.lblTitleProducto.TabIndex = 2;
@@ -81,7 +85,7 @@
             // 
             this.lblTitleVenta.AutoSize = true;
             this.lblTitleVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleVenta.Location = new System.Drawing.Point(323, 180);
+            this.lblTitleVenta.Location = new System.Drawing.Point(318, 241);
             this.lblTitleVenta.Name = "lblTitleVenta";
             this.lblTitleVenta.Size = new System.Drawing.Size(187, 25);
             this.lblTitleVenta.TabIndex = 3;
@@ -100,7 +104,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.lblUtilidadBruta);
-            this.panel1.Location = new System.Drawing.Point(17, 104);
+            this.panel1.Location = new System.Drawing.Point(17, 165);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(136, 47);
             this.panel1.TabIndex = 20;
@@ -118,7 +122,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.lblUtilidadNeta);
-            this.panel2.Location = new System.Drawing.Point(328, 104);
+            this.panel2.Location = new System.Drawing.Point(323, 165);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(136, 47);
             this.panel2.TabIndex = 21;
@@ -136,7 +140,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.lblProducto);
-            this.panel3.Location = new System.Drawing.Point(20, 208);
+            this.panel3.Location = new System.Drawing.Point(20, 269);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(136, 47);
             this.panel3.TabIndex = 22;
@@ -154,7 +158,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.lblVenta);
-            this.panel4.Location = new System.Drawing.Point(331, 208);
+            this.panel4.Location = new System.Drawing.Point(326, 269);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(136, 47);
             this.panel4.TabIndex = 23;
@@ -169,11 +173,49 @@
             this.lblVenta.Text = "0";
             this.lblVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblDesde
+            // 
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(83, 72);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(38, 13);
+            this.lblDesde.TabIndex = 24;
+            this.lblDesde.Text = "Desde";
+            // 
+            // dtpDesde
+            // 
+            this.dtpDesde.Location = new System.Drawing.Point(12, 94);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(215, 20);
+            this.dtpDesde.TabIndex = 25;
+            this.dtpDesde.ValueChanged += new System.EventHandler(this.dtpDesde_ValueChanged);
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Location = new System.Drawing.Point(290, 94);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(215, 20);
+            this.dtpHasta.TabIndex = 26;
+            this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
+            // 
+            // lblHasta
+            // 
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(377, 72);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(35, 13);
+            this.lblHasta.TabIndex = 27;
+            this.lblHasta.Text = "Hasta";
+            // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 305);
+            this.ClientSize = new System.Drawing.Size(520, 336);
+            this.Controls.Add(this.lblHasta);
+            this.Controls.Add(this.dtpHasta);
+            this.Controls.Add(this.dtpDesde);
+            this.Controls.Add(this.lblDesde);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -210,5 +252,9 @@
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblVenta;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.Label lblHasta;
     }
 }
